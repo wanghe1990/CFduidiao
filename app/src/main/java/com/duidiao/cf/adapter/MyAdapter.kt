@@ -3,6 +3,7 @@ package com.duidiao.cf.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.duidiao.cf.R
 import com.duidiao.cf.model.Item
@@ -30,6 +31,19 @@ class MyAdapter(private val dataList: List<Item>?) :
 
     // ViewHolder类
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val textView: TextView = itemView.findViewById(R.id.textView)
+        val index: TextView = itemView.findViewById(R.id.tv_index)
+        val openTeam1: TextView = itemView.findViewById(R.id.et_open_team1)
+        val openTeam2: TextView = itemView.findViewById(R.id.et_open_team2)
+        val openBig1: TextView = itemView.findViewById(R.id.tv_open_big1)
+        val openBig2: TextView = itemView.findViewById(R.id.tv_open_big2)
+        val openSmall1: TextView = itemView.findViewById(R.id.tv_open_small1)
+        val openSmall2: TextView = itemView.findViewById(R.id.tv_open_small2)
+
+        val closeTeam1: TextView = itemView.findViewById(R.id.et_close_team1)
+        val closeTeam2: TextView = itemView.findViewById(R.id.et_close_team2)
+        val closeBig1: TextView = itemView.findViewById(R.id.tv_close_big1)
+        val closeBig2: TextView = itemView.findViewById(R.id.tv_close_big2)
+        val closeSmall1: TextView = itemView.findViewById(R.id.tv_close_small1)
+        val closeSmall2: TextView = itemView.findViewById(R.id.tv_close_small2)
     }
 }
