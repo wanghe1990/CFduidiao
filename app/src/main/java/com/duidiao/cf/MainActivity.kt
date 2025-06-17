@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                     val currentPosition = layoutManager.findFirstCompletelyVisibleItemPosition()
                     if (currentPosition != RecyclerView.NO_POSITION) {
-                        Log.i(TAG, "currentPosition $newState, position$currentPosition")
+                        Log.i(TAG, "currentPosition,     position$currentPosition")
                     }
                 }
             }

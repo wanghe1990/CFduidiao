@@ -13,17 +13,9 @@
         android:text="第一局"
         android:textSize="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:text="开室"
-        android:textSize="26dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -31,51 +23,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="南北: "
-            android:textSize="26sp" />
+            android:text="开室"
+            android:textSize="26dp" />
 
-        <EditText
-            android:id="@+id/et_open_team1"
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
             android:layout_weight="1"
-            android:textSize="26sp" />
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="30sp"
+                android:text="东西"
+                android:layout_marginLeft="40dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="30sp"
+                android:text="南北"
+                android:layout_marginLeft="40dp"/>
+
+        </RadioGroup>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="东西: "
-            android:textSize="26sp" />
-
-        <EditText
-            android:id="@+id/et_open_team2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:textSize="26sp" />
-
-        <ImageView
-            android:id="@+id/iv_expend"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="40dp"
-            android:src="@drawable/ic_open" />
-
-    </LinearLayout>
-
-    <LinearLayout
+        android:id="@+id/ll_open"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -171,72 +147,131 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="得分:"
+            android:textSize="40sp"/>
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/sub"
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:inputType="number"
+            android:hint="130"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/add"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="30dp"
-        android:background="#ffdd33" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:text="闭室"
-        android:textSize="26dp" />
+        android:background="#fff000"
+        android:layout_marginTop="30dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="南北: "
-            android:textSize="26sp" />
+            android:text="开室"
+            android:textSize="26dp" />
 
-        <EditText
-            android:id="@+id/et_close_team1"
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
             android:layout_weight="1"
-            android:textSize="26sp" />
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="30sp"
+                android:text="东西"
+                android:layout_marginLeft="40dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="30sp"
+                android:text="南北"
+                android:layout_marginLeft="40dp"/>
+
+        </RadioGroup>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_close"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/tv_close_double_big"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:background="#44ffdd"
+            android:gravity="center"
+            android:text="对大"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tv_close_double_small"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:text="东西: "
-            android:textSize="26sp" />
+            android:background="#44ffdd"
+            android:gravity="center"
+            android:text="对小"
+            android:textSize="30sp" />
 
-        <EditText
-            android:id="@+id/et_close_team2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:textSize="26sp" />
+        <TextView
+            android:id="@+id/tv_close_single_big"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="#44ffdd"
+            android:gravity="center"
+            android:text="大"
+            android:textSize="30sp" />
 
-        <ImageView
-            android:id="@+id/iv_close_expend"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="40dp"
-            android:src="@drawable/ic_open" />
+        <TextView
+            android:id="@+id/tv_close_single_small"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="#44ffdd"
+            android:gravity="center"
+            android:text="小"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -285,6 +320,42 @@
             android:gravity="center"
             android:text="小"
             android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="得分:"
+            android:textSize="40sp"/>
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/sub"
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:inputType="number"
+            android:hint="130"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/add"/>
+
     </LinearLayout>
 
 </LinearLayout>
