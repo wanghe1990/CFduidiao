@@ -2,15 +2,30 @@ package com.duidiao.cf.model
 
 /** 列表项数据模型 */
 data class Item(
-    val index: Int, //第几局
-    val openTeam1: Int,// 打成
-    val openTeam2: Int,//得分
-    val openDashing: Int, //潇洒
+    val index: Int = 1, //第几局
+    val openNorthCheckable: Boolean = false,//zhuangjia
+    val openEastCheckable: Boolean = false,//shifoushizhuang
+    val openUseBig1Select: Boolean = false,
+    val openUseBig2Select: Boolean = false,
+    val openUseSmall1Select: Boolean = false,
+    val openUseSmall2Select: Boolean = false,
+    val openDoubleBigKouSelect: Boolean = false,
+    val openDoubleSmallKouSelect: Boolean = false,
+    val openSingleBigKouSelect: Boolean = false,
+    val openSingleSmallKouSelect: Boolean = false,
+    val openScore: Int = 0,
 
-    val closeTeam2: Int,//得分
-    val closeTeam1: Int, //打成
-    val closeDashing: Int, //潇洒
-
-    val winTeam: String,
-    val winResult: Int
+    val closeNorthCheckable: Boolean = false,//zhuangjia
+    val closeEastCheckable: Boolean = false,//shifoushizhuang
+    val closeUseBig1Select: Boolean = false,
+    val closeUseBig2Select: Boolean = false,
+    val closeUseSmall1Select: Boolean = false,
+    val closeUseSmall2Select: Boolean = false,
+    val closeDoubleBigKouSelect: Boolean = false,
+    val closeDoubleSmallKouSelect: Boolean = false,
+    val closeSingleBigKouSelect: Boolean = false,
+    val closeSingleSmallKouSelect: Boolean = false,
+    val closeScore: Int = 0,
+//    val winTeam: String,
+//    val winResult: Int
 )

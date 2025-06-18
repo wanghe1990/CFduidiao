@@ -27,12 +27,14 @@
             android:textSize="26dp" />
 
         <RadioGroup
+            android:id="@+id/rg_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rb_open_north"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:textSize="30sp"
@@ -40,6 +42,7 @@
                 android:layout_marginLeft="40dp"/>
 
             <RadioButton
+                android:id="@+id/rb_open_east"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:textSize="30sp"
@@ -107,7 +110,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_open_big1"
+            android:id="@+id/tv_open_use_big1"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:background="#44ffdd"
@@ -116,7 +119,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_open_big2"
+            android:id="@+id/tv_open_use_big2"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -126,7 +129,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_open_small1"
+            android:id="@+id/tv_open_use_small1"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -136,7 +139,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_open_small2"
+            android:id="@+id/tv_open_use_small2"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -161,12 +164,14 @@
             android:textSize="40sp"/>
 
         <ImageView
+            android:id="@+id/iv_open_sub"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/sub"
             android:layout_marginLeft="20dp"/>
 
         <EditText
+            android:id="@+id/et_open_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
@@ -175,6 +180,7 @@
             android:layout_marginLeft="5dp"/>
 
         <ImageView
+            android:id="@+id/iv_open_add"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginLeft="5dp"
@@ -203,12 +209,14 @@
             android:textSize="26dp" />
 
         <RadioGroup
+            android:id="@+id/rg_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rb_close_north"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:textSize="30sp"
@@ -216,6 +224,7 @@
                 android:layout_marginLeft="40dp"/>
 
             <RadioButton
+                android:id="@+id/rb_close_east"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:textSize="30sp"
@@ -283,7 +292,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_close_big1"
+            android:id="@+id/tv_close_use_big1"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:background="#44ffdd"
@@ -292,7 +301,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_close_big2"
+            android:id="@+id/tv_close_use_big2"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -302,7 +311,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_close_small1"
+            android:id="@+id/tv_close_use_small1"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -312,7 +321,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_close_small2"
+            android:id="@+id/tv_close_use_small2"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -337,12 +346,14 @@
             android:textSize="40sp"/>
 
         <ImageView
+            android:id="@+id/iv_close_sub"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/sub"
             android:layout_marginLeft="20dp"/>
 
         <EditText
+            android:id="@+id/et_close_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
@@ -351,6 +362,7 @@
             android:layout_marginLeft="5dp"/>
 
         <ImageView
+            android:id="@+id/iv_close_add"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginLeft="5dp"

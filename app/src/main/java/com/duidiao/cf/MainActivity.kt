@@ -3,6 +3,7 @@ package com.duidiao.cf
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -15,6 +16,8 @@ class MainActivity : ComponentActivity() {
     private val TAG = "MainActivity"
     private var recyclerView: RecyclerView? = null
     private var dataList: List<Item>? = null
+    private var start: TextView? = null
+    private var result: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +28,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun initList() {
-        var item = Item(1,0,0,0,0,0,0, "", 0)
+        var item = Item()
         dataList = listOf(item, item, item)
     }
 
@@ -60,6 +63,9 @@ class MainActivity : ComponentActivity() {
 
     private fun initView() {
         recyclerView = findViewById(R.id.recyclerView)
+        start = findViewById(R.id.tv_start)
+        result = findViewById(R.id.tv_result)
+
     }
 
 }
