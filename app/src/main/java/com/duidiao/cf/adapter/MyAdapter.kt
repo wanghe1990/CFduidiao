@@ -71,23 +71,23 @@ class MyAdapter(private val dataList: List<Item>?) :
     private fun initEvent(holder: ViewHolder, item: Item?) {
         holder.openRbNorth.setOnCheckedChangeListener { button, isChecked ->
             item?.openNorthCheckable = isChecked
-            item?.closeNorthCheckable = !isChecked
-            holder.closeRbNorth.isChecked = !isChecked
-            holder.closeRbEast.isChecked = isChecked
+            item?.closeNorthCheckable = isChecked
+            holder.closeRbNorth.isChecked = isChecked
+            holder.closeRbEast.isChecked = !isChecked
             if (isChecked) {
-                item?.openTeam1 = "2队"
-                item?.openTeam2 = "1队"
+                item?.openTeam1 = "1队"
+                item?.openTeam2 = "2队"
             }
         }
 
         holder.openRbEast.setOnCheckedChangeListener { button, isChecked ->
             item?.openEastCheckable = isChecked
-            item?.closeEastCheckable = !isChecked
-            holder.closeRbEast.isChecked = !isChecked
-            holder.closeRbNorth.isChecked = isChecked
+            item?.closeEastCheckable = isChecked
+            holder.closeRbEast.isChecked = isChecked
+            holder.closeRbNorth.isChecked = !isChecked
             if (isChecked) {
-                item?.openTeam1 = button.text.toString()
-                item?.openTeam2 = holder.openRbNorth.text.toString()
+                item?.closeTeam1 = "1队"
+                item?.closeTeam2 = "2队"
             }
         }
         holder.openDoubleBigKou.setOnCheckedChangeListener { button, isChecked ->
@@ -309,7 +309,7 @@ class MyAdapter(private val dataList: List<Item>?) :
                 }
             }
         }
-        holder.result.text = "赢家：" + date.realWinTeam + ",得分: " + date.realResultScore
+        holder.result.text = "赢家：" + if(date.realResultScore == 0) "平局" else date.realWinTeam + ",得分: " + date.realResultScore
     }
 
     // 返回数据项数量
