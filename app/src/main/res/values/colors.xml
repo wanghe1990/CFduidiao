@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="koudi_checked_enable">#ffdd99</color>
+    <color name="koudi_checked_disable">#33ff33</color>
+    <color name="score_color">#000044</color>
+
 </resources>

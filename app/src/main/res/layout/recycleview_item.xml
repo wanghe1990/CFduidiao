@@ -61,44 +61,61 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_double_big"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="对大"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="对大抠"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_double_small"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="对小"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="对小抠"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_single_big"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="大"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="大王抠"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_single_small"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="小"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="小王抠"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -109,44 +126,61 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_use_big1"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="大"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="消大王"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_use_big2"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="大"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="消大王"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_use_small1"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="小"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="消小王"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_open_use_small2"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="小"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="消小王"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -161,28 +195,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="得分:"
-            android:textSize="40sp"/>
+            android:textSize="25sp"/>
 
         <ImageView
             android:id="@+id/iv_open_sub"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/sub"
             android:layout_marginLeft="20dp"/>
 
         <EditText
             android:id="@+id/et_open_score"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:inputType="number"
-            android:hint="130"
+            android:gravity="center"
+            android:background="@drawable/score_shape"
             android:layout_marginLeft="5dp"/>
 
         <ImageView
             android:id="@+id/iv_open_add"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/add"/>
 
@@ -205,7 +240,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="开室"
+            android:text="闭室"
             android:textSize="26dp" />
 
         <RadioGroup
@@ -243,44 +278,61 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_double_big"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="对大"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="对大抠"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_double_small"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="对小"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="对小抠"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_single_big"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="大"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="大王抠"
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_single_small"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
-            android:text="小"
-            android:textSize="30sp" />
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="小王抠"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -291,44 +343,61 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_use_big1"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="大"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_use_big2"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="大"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_use_small1"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="小"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/tv_close_use_small2"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:background="#44ffdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:button="@null"
+            android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="小"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -343,28 +412,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="得分:"
-            android:textSize="40sp"/>
+            android:textSize="25sp"/>
 
         <ImageView
             android:id="@+id/iv_close_sub"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/sub"
             android:layout_marginLeft="20dp"/>
 
         <EditText
             android:id="@+id/et_close_score"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:inputType="number"
-            android:hint="130"
+            android:gravity="center"
+            android:background="@drawable/score_shape"
             android:layout_marginLeft="5dp"/>
 
         <ImageView
             android:id="@+id/iv_close_add"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:src="@drawable/add"/>
 
