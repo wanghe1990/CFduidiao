@@ -40,9 +40,6 @@ data class Item(
     var realWinTeam : String = closeWinTeam,
 
     ) {
-    fun setBanker(text: String) {
-
-    }
 
     override fun toString(): String {
         return "Item(index=$index, openNorthCheckable=$openNorthCheckable, openEastCheckable=$openEastCheckable, " +

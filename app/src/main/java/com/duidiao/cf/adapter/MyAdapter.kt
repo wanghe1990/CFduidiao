@@ -1,17 +1,19 @@
 package com.duidiao.cf.adapter
 
+import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.duidiao.cf.R
@@ -22,10 +24,14 @@ import com.duidiao.cf.model.Item
 class MyAdapter(private val dataList: List<Item>?) :
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
+    private val TAG = "MyAdapter"
+    private var ctx: Context? = null
+
     // 创建ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycleview_item, parent, false)
+        ctx = parent.context
         return ViewHolder(view)
     }
 
@@ -69,8 +75,8 @@ class MyAdapter(private val dataList: List<Item>?) :
             holder.closeRbNorth.isChecked = !isChecked
             holder.closeRbEast.isChecked = isChecked
             if (isChecked) {
-                item?.openTeam1 = button.text.toString()
-                item?.openTeam2 = holder.openRbEast.text.toString()
+                item?.openTeam1 = "2队"
+                item?.openTeam2 = "1队"
             }
         }
 
@@ -159,6 +165,151 @@ class MyAdapter(private val dataList: List<Item>?) :
                 item?.closeScore = p0.toString().toInt()
             }
         }}
+
+        holder.clear.setOnClickListener {
+            holder.openRadioGroup.clearCheck()
+            holder.openRgKou.clearCheck()
+            holder.openScore.setText("")
+            item?.openScore = 0
+            holder.openUseBig1.isChecked = false
+            holder.openUseBig2.isChecked = false
+            holder.openUseSmall1.isChecked = false
+            holder.openUseSmall2.isChecked = false
+            holder.openRgKou.clearCheck()
+
+            holder.closeRadioGroup.clearCheck()
+            holder.closeScore.setText("")
+            holder.closeRgKou.clearCheck()
+            item?.closeScore = 0
+            holder.closeUseBig1.isChecked = false
+            holder.closeUseBig2.isChecked = false
+            holder.closeUseSmall1.isChecked = false
+            holder.closeUseSmall2.isChecked = false
+        }
+
+        holder.start.setOnClickListener {
+            if(holder.openRadioGroup.checkedRadioButtonId == -1) {
+                Toast.makeText(ctx, "请先选择庄家", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            handlerScore(holder, item)
+        }
+
+    }
+
+    private fun handlerScore(holder: ViewHolder, item: Item?) {
+        var date = item ?: Item()
+        Log.i(TAG, "handlerScore date = ${date.toString()}")
+
+        date.openResultScore = 0
+        date.openWinTeam = if (date.openEastCheckable) date.openTeam1 else date.openTeam2
+        //开室计算
+        if (date.openUseBig1Select) {
+            date.openResultScore += 3
+        }
+        if (date.openUseBig2Select) {
+            date.openResultScore += 3
+        }
+        if (date.openUseSmall1Select) {
+            date.openResultScore += 2
+        }
+        if (date.openUseSmall2Select) {
+            date.openResultScore += 2
+        }
+        //扣抵
+        if (date.openDoubleBigKouSelect) {
+            date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
+            date.openResultScore += 6
+        }
+        if (date.openDoubleSmallKouSelect) {
+            date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
+            date.openResultScore += 4
+        }
+        if (date.openSingleBigKouSelect) {
+            date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
+            date.openResultScore += 3
+        }
+        if (date.openSingleSmallKouSelect) {
+            date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
+            date.openResultScore += 2
+        }
+
+        if (date.openScore >= 80) {
+            date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
+        } else {
+            date.openWinTeam = if (date.openEastCheckable) date.openTeam1 else date.openTeam2
+        }
+
+        if ((date.openWinTeam == if (date.openEastCheckable) date.openTeam1 else date.openTeam2) && date.openScore == 0) {
+            date.openResultScore += 3
+        }
+
+        //闭室计算
+        date.closeResultScore = 0
+        date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1
+        //潇洒
+        if (date.closeUseBig1Select) {
+            date.closeResultScore += 3
+        }
+        if (date.closeUseBig2Select) {
+            date.closeResultScore += 3
+        }
+        if (date.closeUseSmall1Select) {
+            date.closeResultScore += 2
+        }
+        if (date.closeUseSmall2Select) {
+            date.closeResultScore += 2
+        }
+        //扣抵
+        if (date.closeDoubleBigKouSelect) {
+            date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
+            date.closeResultScore += 6
+        }
+        if (date.closeDoubleSmallKouSelect) {
+            date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
+            date.closeResultScore += 4
+        }
+        if (date.closeSingleBigKouSelect) {
+            date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
+            date.closeResultScore += 3
+        }
+        if (date.closeSingleSmallKouSelect) {
+            date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
+            date.closeResultScore += 2
+        }
+
+        if (date.closeScore >= 80) {
+            date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
+        } else {
+            date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1
+        }
+
+        if ((date.closeWinTeam == if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1 )&& date.closeScore == 0) {
+            date.closeResultScore += 3
+        }
+
+        if (date.openWinTeam == date.closeWinTeam) {
+            date.realResultScore = date.openResultScore + date.closeResultScore
+            date.realWinTeam = date.openWinTeam
+        } else {
+            if (date.openResultScore > date.closeResultScore) {
+                date.realResultScore = date.openResultScore - date.closeResultScore
+                date.realWinTeam = date.openWinTeam
+            } else if (date.openResultScore < date.closeResultScore){
+                date.realResultScore = date.closeResultScore - date.openResultScore
+                date.realWinTeam = date.closeWinTeam
+            } else {
+                if (date.openScore > date.closeScore) {
+                    date.realWinTeam = date.closeWinTeam
+                    date.realResultScore = 1
+                } else if (date.openScore < date.closeScore){
+                    date.realWinTeam = date.openWinTeam
+                    date.realResultScore = 1
+                }
+            }
+        }
+        holder.result.text = "赢家：" + date.realWinTeam + ",得分: " + date.realResultScore
     }
 
     // 返回数据项数量
@@ -174,28 +325,33 @@ class MyAdapter(private val dataList: List<Item>?) :
         val openUseBig2: CheckBox = itemView.findViewById(R.id.tv_open_use_big2)
         val openUseSmall1: CheckBox = itemView.findViewById(R.id.tv_open_use_small1)
         val openUseSmall2: CheckBox = itemView.findViewById(R.id.tv_open_use_small2)
-        val openLL: LinearLayout = itemView.findViewById(R.id.ll_open)
-        val openDoubleBigKou: CheckBox = itemView.findViewById(R.id.tv_open_double_big)
-        val openDoubleSmallKou: CheckBox = itemView.findViewById(R.id.tv_open_double_small)
-        val openSingleBigKou: CheckBox = itemView.findViewById(R.id.tv_open_single_big)
-        val openSingleSmallKou: CheckBox = itemView.findViewById(R.id.tv_open_single_small)
+        val openRgKou: RadioGroup = itemView.findViewById(R.id.rg_open_kou)
+        val openDoubleBigKou: RadioButton = itemView.findViewById(R.id.tv_open_double_big)
+        val openDoubleSmallKou: RadioButton = itemView.findViewById(R.id.tv_open_double_small)
+        val openSingleBigKou: RadioButton = itemView.findViewById(R.id.tv_open_single_big)
+        val openSingleSmallKou: RadioButton = itemView.findViewById(R.id.tv_open_single_small)
         val openSubImage: ImageView = itemView.findViewById(R.id.iv_open_sub)
         val openScore: EditText = itemView.findViewById(R.id.et_open_score)
         val openAddImage: ImageView = itemView.findViewById(R.id.iv_open_add)
 
+        val closeRadioGroup: RadioGroup = itemView.findViewById(R.id.rg_close)
         val closeRbNorth: RadioButton = itemView.findViewById(R.id.rb_close_north) //东西
         val closeRbEast: RadioButton = itemView.findViewById(R.id.rb_close_east) //南北
         val closeUseBig1: CheckBox = itemView.findViewById(R.id.tv_close_use_big1)
         val closeUseBig2: CheckBox = itemView.findViewById(R.id.tv_close_use_big2)
         val closeUseSmall1: CheckBox = itemView.findViewById(R.id.tv_close_use_small1)
         val closeUseSmall2: CheckBox = itemView.findViewById(R.id.tv_close_use_small2)
-        val closeLL: LinearLayout = itemView.findViewById(R.id.ll_close)
-        val closeDoubleBigKou: CheckBox = itemView.findViewById(R.id.tv_close_double_big)
-        val closeDoubleSmallKou: CheckBox = itemView.findViewById(R.id.tv_close_double_small)
-        val closeSingleBigKou: CheckBox = itemView.findViewById(R.id.tv_close_single_big)
-        val closeSingleSmallKou: CheckBox = itemView.findViewById(R.id.tv_close_single_small)
+        val closeRgKou: RadioGroup = itemView.findViewById(R.id.rg_close_kou)
+        val closeDoubleBigKou: RadioButton = itemView.findViewById(R.id.tv_close_double_big)
+        val closeDoubleSmallKou: RadioButton = itemView.findViewById(R.id.tv_close_double_small)
+        val closeSingleBigKou: RadioButton = itemView.findViewById(R.id.tv_close_single_big)
+        val closeSingleSmallKou: RadioButton = itemView.findViewById(R.id.tv_close_single_small)
         val closeSubImage: ImageView = itemView.findViewById(R.id.iv_close_sub)
         val closeScore: EditText = itemView.findViewById(R.id.et_close_score)
         val closeAddImage: ImageView = itemView.findViewById(R.id.iv_close_add)
+
+        val clear :TextView = itemView.findViewById(R.id.tv_clear)
+        val start :TextView = itemView.findViewById(R.id.tv_start)
+        val result :TextView = itemView.findViewById(R.id.result)
     }
 }

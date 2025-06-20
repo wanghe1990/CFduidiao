@@ -115,6 +115,11 @@ class MainActivity : ComponentActivity() {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam1 else date.openTeam2
         }
 
+        if ((date.openWinTeam == if (date.openEastCheckable) date.openTeam1 else date.openTeam2) && date.openScore == 0) {
+            date.openResultScore += 3
+        }
+
+
         //闭室计算
         date.closeResultScore = 0
         date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1
@@ -155,7 +160,9 @@ class MainActivity : ComponentActivity() {
             date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1
         }
 
-
+        if ((date.closeWinTeam == if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1 )&& date.closeScore == 0) {
+            date.closeResultScore += 3
+        }
 
         if (date.openWinTeam == date.closeWinTeam) {
             date.realResultScore = date.openResultScore + date.closeResultScore
@@ -177,10 +184,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
-
-        result?.text = "赢家：" + date.realWinTeam + ",   得分： " + date.realResultScore
-
+        result?.text = "胜利者：" + date.realWinTeam + ",   得分： " + date.realResultScore
     }
 
 }
