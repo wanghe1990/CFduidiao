@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="40dp"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:text="总比分 : "/>
 
             <TextView
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="20dp"
                 android:layout_centerVertical="true"

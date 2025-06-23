@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:text="开室"
             android:padding="8dp"
             android:background="@drawable/home_shape"
@@ -56,7 +56,6 @@
                 android:id="@+id/rb_open_east"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="20sp"
                 android:text="南北(1队)"
                 android:layout_marginLeft="40dp"/>
 
@@ -64,7 +63,6 @@
                 android:id="@+id/rb_open_north"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="20sp"
                 android:text="东西(2队)"
                 android:layout_marginLeft="20dp"/>
 
@@ -93,8 +91,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="对大抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="对大抠"/>
 
         <RadioButton
             android:id="@+id/tv_open_double_small"
@@ -108,8 +106,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="对小抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="对小抠"/>
 
         <RadioButton
             android:id="@+id/tv_open_single_big"
@@ -123,8 +121,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="大王抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="大王抠"/>
 
         <RadioButton
             android:id="@+id/tv_open_single_small"
@@ -138,8 +136,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="小王抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="小王抠"/>
 
     </RadioGroup>
 
@@ -163,8 +161,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消大王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消大王"/>
 
         <CheckBox
             android:id="@+id/tv_open_use_big2"
@@ -178,8 +176,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消大王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消大王"/>
 
         <CheckBox
             android:id="@+id/tv_open_use_small1"
@@ -193,8 +191,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消小王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消小王"/>
 
         <CheckBox
             android:id="@+id/tv_open_use_small2"
@@ -208,8 +206,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消小王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消小王"/>
 
     </LinearLayout>
 
@@ -224,7 +222,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="得分:"
-            android:textSize="25sp"/>
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/iv_open_sub"
@@ -237,7 +235,6 @@
             android:id="@+id/et_open_score"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:inputType="number"
             android:gravity="center"
             android:text="0"
@@ -269,7 +266,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:text="闭室"
             android:padding="8dp"
             android:background="@drawable/home_shape"
@@ -287,7 +284,6 @@
                 android:id="@+id/rb_close_north"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="20sp"
                 android:text="东西(1队)"
                 android:clickable="false"
                 android:layout_marginLeft="40dp"/>
@@ -296,7 +292,6 @@
                 android:id="@+id/rb_close_east"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="20sp"
                 android:text="南北(2队)"
                 android:clickable="false"
                 android:layout_marginLeft="20dp"/>
@@ -326,8 +321,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="对大抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="对大抠"/>
 
         <RadioButton
             android:id="@+id/tv_close_double_small"
@@ -341,8 +336,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="对小抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="对小抠"/>
 
         <RadioButton
             android:id="@+id/tv_close_single_big"
@@ -356,8 +351,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="大王抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="大王抠"/>
 
         <RadioButton
             android:id="@+id/tv_close_single_small"
@@ -371,8 +366,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="小王抠"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="小王抠"/>
 
     </RadioGroup>
 
@@ -396,8 +391,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消大王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消大王"/>
 
         <CheckBox
             android:id="@+id/tv_close_use_big2"
@@ -411,8 +406,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消大王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消大王"/>
 
         <CheckBox
             android:id="@+id/tv_close_use_small1"
@@ -426,8 +421,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消小王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消小王"/>
 
         <CheckBox
             android:id="@+id/tv_close_use_small2"
@@ -441,8 +436,8 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="消小王"
-            android:textSize="20sp" />
+            android:textSize="18dp"
+            android:text="消小王"/>
 
     </LinearLayout>
     <LinearLayout
@@ -456,7 +451,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="得分:"
-            android:textSize="25sp"/>
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/iv_close_sub"
@@ -469,7 +464,6 @@
             android:id="@+id/et_close_score"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:inputType="number"
             android:gravity="center"
             android:text="0"
@@ -495,8 +489,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
-            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:lines="1"
             android:text="单局比分: "/>
 
         <TextView
@@ -506,19 +500,18 @@
             android:layout_height="wrap_content"
             android:lines="1"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"/>
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/tv_start"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="20sp"
+            android:padding="5dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/single_count_shape"
             android:textColor="@color/white"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="20dp"
             android:text="计算"/>
 
     </RelativeLayout>

@@ -117,19 +117,26 @@ class MyAdapter(private val dataList: List<Item>?) :
             item?.openUseSmall2Select = isChecked
         }
 
-        holder.openScore.addTextChangedListener {
-            object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
+        val textWatcherOpen = object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.i(TAG, "addTextChangedListener beforeTextChanged ${p0.toString()}")
+            }
 
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.i(TAG, "addTextChangedListener onTextChanged ${p0.toString()}")
+            }
 
-                override fun afterTextChanged(p0: Editable?) {
+            override fun afterTextChanged(p0: Editable?) {
+                Log.i(TAG, "addTextChangedListener afterTextChanged ${p0.toString()}")
+                if (p0.toString().isEmpty()) {
+                    item?.openScore = 0
+                } else {
                     item?.openScore = p0.toString().toInt()
                 }
             }
         }
+
+        holder.openScore.addTextChangedListener(textWatcherOpen)
 
         //close
         holder.closeDoubleBigKou.setOnCheckedChangeListener { button, isChecked ->
@@ -157,19 +164,27 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.closeUseSmall2.setOnCheckedChangeListener { button, isChecked ->
             item?.closeUseSmall2Select = isChecked
         }
-        holder.closeScore.addTextChangedListener {
-            object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
 
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.i(TAG, "addTextChangedListener beforeTextChanged ${p0.toString()}")
+            }
 
-                override fun afterTextChanged(p0: Editable?) {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.i(TAG, "addTextChangedListener onTextChanged ${p0.toString()}")
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                Log.i(TAG, "addTextChangedListener afterTextChanged ${p0.toString()}")
+                if (p0.toString().isEmpty()) {
+                    item?.closeScore = 0
+                } else {
                     item?.closeScore = p0.toString().toInt()
                 }
             }
         }
+
+        holder.closeScore.addTextChangedListener(textWatcher)
 
         holder.clear.setOnClickListener {
             holder.openRadioGroup.clearCheck()
@@ -367,10 +382,10 @@ class MyAdapter(private val dataList: List<Item>?) :
                 date.realWinTeam = date.closeWinTeam
             } else {
                 if (date.openScore > date.closeScore) {
-                    date.realWinTeam = date.closeWinTeam
+                    date.realWinTeam = date.openWinTeam
                     date.realResultScore = 1
                 } else if (date.openScore < date.closeScore) {
-                    date.realWinTeam = date.openWinTeam
+                    date.realWinTeam = date.closeWinTeam
                     date.realResultScore = 1
                 } else {
                     date.realResultScore = 0

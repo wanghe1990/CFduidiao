@@ -68,10 +68,12 @@ class MainActivity : ComponentActivity() {
         result = findViewById(R.id.tv_result)
 
         start?.setOnClickListener {
+            handleScore(dataList)
         }
     }
 
-    private fun handleScore() {
+    private fun handleScore(dataList: List<Item>?) {
+        Log.i(TAG, "")
     }
 
 }
