@@ -38,7 +38,7 @@ class MyAdapter(private val dataList: List<Item>?) :
     // 绑定数据到ViewHolder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList?.get(position)
-        item?.index = "第 $position 局"
+        item?.index = "第 ${position+1} 局"
         holder.index.text = item?.index.toString()
         holder.openRbNorth.isChecked = item?.openNorthCheckable!!
         holder.openRbEast.isChecked = item?.openEastCheckable!!
@@ -91,6 +91,7 @@ class MyAdapter(private val dataList: List<Item>?) :
             }
         }
         holder.openDoubleBigKou.setOnCheckedChangeListener { button, isChecked ->
+            Log.i(TAG, "openDoubleBigKouSelect = = $isChecked")
             item?.openDoubleBigKouSelect = isChecked
         }
         holder.openDoubleSmallKou.setOnCheckedChangeListener { button, isChecked ->
@@ -116,17 +117,19 @@ class MyAdapter(private val dataList: List<Item>?) :
             item?.openUseSmall2Select = isChecked
         }
 
-        holder.openScore.addTextChangedListener {object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+        holder.openScore.addTextChangedListener {
+            object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
 
-            override fun afterTextChanged(p0: Editable?) {
-                item?.openScore = p0.toString().toInt()
+                override fun afterTextChanged(p0: Editable?) {
+                    item?.openScore = p0.toString().toInt()
+                }
             }
-        }}
+        }
 
         //close
         holder.closeDoubleBigKou.setOnCheckedChangeListener { button, isChecked ->
@@ -154,17 +157,19 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.closeUseSmall2.setOnCheckedChangeListener { button, isChecked ->
             item?.closeUseSmall2Select = isChecked
         }
-        holder.closeScore.addTextChangedListener {object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+        holder.closeScore.addTextChangedListener {
+            object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
 
-            override fun afterTextChanged(p0: Editable?) {
-                item?.closeScore = p0.toString().toInt()
+                override fun afterTextChanged(p0: Editable?) {
+                    item?.closeScore = p0.toString().toInt()
+                }
             }
-        }}
+        }
 
         holder.clear.setOnClickListener {
             holder.openRadioGroup.clearCheck()
@@ -176,6 +181,7 @@ class MyAdapter(private val dataList: List<Item>?) :
             holder.openUseSmall1.isChecked = false
             holder.openUseSmall2.isChecked = false
             holder.openRgKou.clearCheck()
+            item?.openResultScore = 0
 
             holder.closeRadioGroup.clearCheck()
             holder.closeScore.setText("")
@@ -185,15 +191,71 @@ class MyAdapter(private val dataList: List<Item>?) :
             holder.closeUseBig2.isChecked = false
             holder.closeUseSmall1.isChecked = false
             holder.closeUseSmall2.isChecked = false
+            item?.closeResultScore = 0
+            item?.realWinTeam = ""
+            item?.realResultScore = 0
+            holder.result.text = "赢家：___,得分:___"
         }
 
         holder.start.setOnClickListener {
-            if(holder.openRadioGroup.checkedRadioButtonId == -1) {
+            if (holder.openRadioGroup.checkedRadioButtonId == -1) {
                 Toast.makeText(ctx, "请先选择庄家", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             handlerScore(holder, item)
+        }
+
+        holder.openSubImage.setOnClickListener {
+            var score = holder.openScore.text.toString()
+            if (score.isEmpty()) {
+                score = "0"
+            }
+            if (score.toInt() >= 5) {
+                holder.openScore.setText((score.toInt()-5).toString())
+            } else {
+                holder.openScore.setText("0")
+            }
+            item?.closeScore = holder.openScore.text.toString().toInt()
+        }
+
+        holder.openAddImage.setOnClickListener {
+            var score = holder.openScore.text.toString()
+            if (score.isEmpty()) {
+                score = "0"
+            }
+            if (score.toInt() < 200) {
+                holder.openScore.setText((score.toInt() + 10).toString())
+            } else {
+                holder.openScore.setText("200")
+            }
+            item?.closeScore = holder.openScore.text.toString().toInt()
+        }
+
+        holder.closeSubImage.setOnClickListener {
+            var score = holder.closeScore.text.toString()
+            if (score.isEmpty()) {
+                score = "0"
+            }
+            if (score.toInt() >= 5) {
+                holder.closeScore.setText((score.toInt()-5).toString())
+            } else {
+                holder.closeScore.setText("0")
+            }
+            item?.closeScore = holder.closeScore.text.toString().toInt()
+        }
+
+        holder.closeAddImage.setOnClickListener {
+            var score = holder.closeScore.text.toString()
+            if (score.isEmpty()) {
+                score = "0"
+            }
+            if (score.toInt() < 200) {
+                holder.closeScore.setText((score.toInt() + 10).toString())
+            } else {
+                holder.closeScore.setText("200")
+            }
+            item?.closeScore = holder.closeScore.text.toString().toInt()
         }
 
     }
@@ -241,13 +303,14 @@ class MyAdapter(private val dataList: List<Item>?) :
             date.openWinTeam = if (date.openEastCheckable) date.openTeam1 else date.openTeam2
         }
 
+        Log.i(TAG, "打光秃逻辑 ${date.openScore} ， win team = ${date.openWinTeam} ")
         if ((date.openWinTeam == if (date.openEastCheckable) date.openTeam1 else date.openTeam2) && date.openScore == 0) {
             date.openResultScore += 3
         }
 
         //闭室计算
         date.closeResultScore = 0
-        date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1
+        date.closeWinTeam = if (date.openEastCheckable) date.closeTeam2 else date.closeTeam1
         //潇洒
         if (date.closeUseBig1Select) {
             date.closeResultScore += 3
@@ -285,31 +348,39 @@ class MyAdapter(private val dataList: List<Item>?) :
             date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1
         }
 
-        if ((date.closeWinTeam == if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1 )&& date.closeScore == 0) {
+        if ((date.closeWinTeam == if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1) && date.closeScore == 0) {
             date.closeResultScore += 3
         }
 
+        Log.i(TAG, "比分结果，赢家: 上-${date.openWinTeam} ,下-${date.closeWinTeam},， 上分：${date.openResultScore}, 下分：${date.closeResultScore}")
         if (date.openWinTeam == date.closeWinTeam) {
             date.realResultScore = date.openResultScore + date.closeResultScore
+            if (date.openResultScore == 0) { //双赢+1
+                date.realResultScore += 1
+            }
+            if (date.closeResultScore == 0) {
+                date.realResultScore += 1
+            }
             date.realWinTeam = date.openWinTeam
         } else {
             if (date.openResultScore > date.closeResultScore) {
                 date.realResultScore = date.openResultScore - date.closeResultScore
                 date.realWinTeam = date.openWinTeam
-            } else if (date.openResultScore < date.closeResultScore){
+            } else if (date.openResultScore < date.closeResultScore) {
                 date.realResultScore = date.closeResultScore - date.openResultScore
                 date.realWinTeam = date.closeWinTeam
             } else {
                 if (date.openScore > date.closeScore) {
                     date.realWinTeam = date.closeWinTeam
                     date.realResultScore = 1
-                } else if (date.openScore < date.closeScore){
+                } else if (date.openScore < date.closeScore) {
                     date.realWinTeam = date.openWinTeam
                     date.realResultScore = 1
                 }
             }
         }
-        holder.result.text = "赢家：" + if(date.realResultScore == 0) "平局" else date.realWinTeam + ",得分: " + date.realResultScore
+        holder.result.text =
+            "赢家：" + if (date.realResultScore == 0) "平局" else date.realWinTeam + ",得分: " + date.realResultScore
     }
 
     // 返回数据项数量
@@ -350,8 +421,8 @@ class MyAdapter(private val dataList: List<Item>?) :
         val closeScore: EditText = itemView.findViewById(R.id.et_close_score)
         val closeAddImage: ImageView = itemView.findViewById(R.id.iv_close_add)
 
-        val clear :TextView = itemView.findViewById(R.id.tv_clear)
-        val start :TextView = itemView.findViewById(R.id.tv_start)
-        val result :TextView = itemView.findViewById(R.id.result)
+        val clear: ImageView = itemView.findViewById(R.id.tv_clear)
+        val start: TextView = itemView.findViewById(R.id.tv_start)
+        val result: TextView = itemView.findViewById(R.id.result)
     }
 }

@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/tv_index"
@@ -16,16 +17,13 @@
             android:text="第一局"
             android:textSize="30dp" />
 
-        <TextView
+        <ImageView
             android:id="@+id/tv_clear"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="#f44fdf"
-            android:layout_marginRight="30dp"
-            android:text="重置"/>
+            android:layout_marginRight="10dp"
+            android:src="@drawable/clear"/>
 
     </RelativeLayout>
 
@@ -40,12 +38,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:text="开室"
-            android:padding="5dp"
-            android:background="#3333ff"
+            android:padding="8dp"
+            android:background="@drawable/home_shape"
             android:textColor="@color/white"
-            android:textSize="26dp" />
+            android:textSize="20dp" />
 
         <RadioGroup
             android:id="@+id/rg_open"
@@ -55,20 +53,20 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rb_open_north"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:textSize="30sp"
-                android:text="东西"
-                android:layout_marginLeft="40dp"/>
-
-            <RadioButton
                 android:id="@+id/rb_open_east"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="30sp"
-                android:text="南北"
+                android:textSize="20sp"
+                android:text="南北(1队)"
                 android:layout_marginLeft="40dp"/>
+
+            <RadioButton
+                android:id="@+id/rb_open_north"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:text="东西(2队)"
+                android:layout_marginLeft="20dp"/>
 
         </RadioGroup>
 
@@ -79,6 +77,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -87,7 +87,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
             android:button="@null"
             android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
@@ -144,6 +143,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -152,7 +153,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
             android:button="@null"
             android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
@@ -232,6 +232,7 @@
             android:textSize="20sp"
             android:inputType="number"
             android:gravity="center"
+            android:text="0"
             android:background="@drawable/score_shape"
             android:layout_marginLeft="5dp"/>
 
@@ -262,10 +263,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="闭室"
-            android:padding="5dp"
-            android:background="#3333ff"
+            android:padding="8dp"
+            android:background="@drawable/home_shape"
             android:textColor="@color/white"
-            android:textSize="26dp" />
+            android:textSize="20dp" />
 
         <RadioGroup
             android:id="@+id/rg_close"
@@ -278,8 +279,8 @@
                 android:id="@+id/rb_close_north"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="30sp"
-                android:text="东西"
+                android:textSize="20sp"
+                android:text="东西(1队)"
                 android:clickable="false"
                 android:layout_marginLeft="40dp"/>
 
@@ -287,10 +288,10 @@
                 android:id="@+id/rb_close_east"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="30sp"
-                android:text="南北"
+                android:textSize="20sp"
+                android:text="南北(2队)"
                 android:clickable="false"
-                android:layout_marginLeft="40dp"/>
+                android:layout_marginLeft="20dp"/>
 
         </RadioGroup>
 
@@ -301,6 +302,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -309,7 +312,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
             android:button="@null"
             android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
@@ -366,6 +368,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -374,7 +378,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
             android:button="@null"
             android:background="@drawable/koudi_rb_background_shape"
             android:gravity="center"
@@ -453,6 +456,7 @@
             android:textSize="20sp"
             android:inputType="number"
             android:gravity="center"
+            android:text="0"
             android:background="@drawable/score_shape"
             android:layout_marginLeft="5dp"/>
 
@@ -496,7 +500,8 @@
             android:gravity="center"
             android:textSize="20sp"
             android:layout_alignParentRight="true"
-            android:background="#1A79FF"
+            android:background="@drawable/single_count_shape"
+            android:textColor="@color/white"
             android:layout_marginRight="30dp"
             android:text="计算"/>
 
