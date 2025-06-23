@@ -216,7 +216,7 @@ class MyAdapter(private val dataList: List<Item>?) :
             } else {
                 holder.openScore.setText("0")
             }
-            item?.closeScore = holder.openScore.text.toString().toInt()
+            item?.openScore = holder.openScore.text.toString().toInt()
         }
 
         holder.openAddImage.setOnClickListener {
@@ -229,7 +229,7 @@ class MyAdapter(private val dataList: List<Item>?) :
             } else {
                 holder.openScore.setText("200")
             }
-            item?.closeScore = holder.openScore.text.toString().toInt()
+            item?.openScore = holder.openScore.text.toString().toInt()
         }
 
         holder.closeSubImage.setOnClickListener {
@@ -299,8 +299,6 @@ class MyAdapter(private val dataList: List<Item>?) :
 
         if (date.openScore >= 80) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
-        } else {
-            date.openWinTeam = if (date.openEastCheckable) date.openTeam1 else date.openTeam2
         }
 
         Log.i(TAG, "打光秃逻辑 ${date.openScore} ， win team = ${date.openWinTeam} ")
@@ -344,15 +342,13 @@ class MyAdapter(private val dataList: List<Item>?) :
 
         if (date.closeScore >= 80) {
             date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
-        } else {
-            date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1
         }
 
         if ((date.closeWinTeam == if (date.closeEastCheckable) date.closeTeam2 else date.closeTeam1) && date.closeScore == 0) {
             date.closeResultScore += 3
         }
 
-        Log.i(TAG, "比分结果，赢家: 上-${date.openWinTeam} ,下-${date.closeWinTeam},， 上分：${date.openResultScore}, 下分：${date.closeResultScore}")
+        Log.i(TAG, "比分结果，赢家: 上-${date.openWinTeam} ,赢家: 下-${date.closeWinTeam},， 上桌得分：${date.openResultScore}, 下桌得分：${date.closeResultScore}")
         if (date.openWinTeam == date.closeWinTeam) {
             date.realResultScore = date.openResultScore + date.closeResultScore
             if (date.openResultScore == 0) { //双赢+1
@@ -376,6 +372,8 @@ class MyAdapter(private val dataList: List<Item>?) :
                 } else if (date.openScore < date.closeScore) {
                     date.realWinTeam = date.openWinTeam
                     date.realResultScore = 1
+                } else {
+                    date.realResultScore = 0
                 }
             }
         }
