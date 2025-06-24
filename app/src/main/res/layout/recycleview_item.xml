@@ -4,30 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="30dp">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_index"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerInParent="true"-->
-<!--            android:text="第一局"-->
-<!--            android:textSize="30dp" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/tv_clear"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:src="@drawable/clear"/>-->
-
-<!--    </RelativeLayout>-->
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,8 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -101,12 +76,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="大王抠"/>
+            android:text="大王抠底"/>
 
         <TextView
             android:id="@+id/tv_open_double_small"
@@ -120,7 +96,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="大王抠"/>
+            android:text="大王抠底"/>
 
         <TextView
             android:id="@+id/tv_open_single_big"
@@ -134,7 +110,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="小王抠"/>
+            android:text="小王抠底"/>
 
         <TextView
             android:id="@+id/tv_open_single_small"
@@ -148,7 +124,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="小王抠"/>
+            android:text="小王抠底"/>
 
     </LinearLayout>
 
@@ -156,8 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -166,12 +141,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消大王"/>
+            android:text="潇洒大王"/>
 
         <TextView
             android:id="@+id/tv_open_use_big2"
@@ -184,7 +160,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消大王"/>
+            android:text="潇洒大王"/>
 
         <TextView
             android:id="@+id/tv_open_use_small1"
@@ -197,7 +173,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消小王"/>
+            android:text="潇洒小王"/>
 
         <TextView
             android:id="@+id/tv_open_use_small2"
@@ -210,7 +186,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消小王"/>
+            android:text="潇洒小王"/>
 
     </LinearLayout>
 
@@ -314,8 +290,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -324,12 +299,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="大王抠"/>
+            android:text="大王抠底"/>
 
         <TextView
             android:id="@+id/tv_close_double_small"
@@ -342,7 +318,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="大王抠"/>
+            android:text="大王抠底"/>
 
         <TextView
             android:id="@+id/tv_close_single_big"
@@ -355,7 +331,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="小王抠"/>
+            android:text="小王抠底"/>
 
         <TextView
             android:id="@+id/tv_close_single_small"
@@ -368,7 +344,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="小王抠"/>
+            android:text="小王抠底"/>
 
     </LinearLayout>
 
@@ -376,8 +352,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -386,12 +361,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消大王"/>
+            android:text="潇洒大王"/>
 
         <TextView
             android:id="@+id/tv_close_use_big2"
@@ -404,7 +380,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消大王"/>
+            android:text="潇洒大王"/>
 
         <TextView
             android:id="@+id/tv_close_use_small1"
@@ -417,7 +393,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消小王"/>
+            android:text="潇洒小王"/>
 
         <TextView
             android:id="@+id/tv_close_use_small2"
@@ -430,7 +406,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:textSize="18dp"
-            android:text="消小王"/>
+            android:text="潇洒小王"/>
 
     </LinearLayout>
     <LinearLayout
