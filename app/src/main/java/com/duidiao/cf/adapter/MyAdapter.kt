@@ -381,14 +381,29 @@ class MyAdapter(private val dataList: List<Item>?) :
                 date.realResultScore = date.closeResultScore - date.openResultScore
                 date.realWinTeam = date.closeWinTeam
             } else {
-                if (date.openScore > date.closeScore) {
-                    date.realWinTeam = date.openWinTeam
-                    date.realResultScore = 1
-                } else if (date.openScore < date.closeScore) {
-                    date.realWinTeam = date.closeWinTeam
-                    date.realResultScore = 1
+                //都是庄赢
+                if ((date.openWinTeam == if (date.openEastCheckable) date.openTeam1 else date.openTeam2)
+                    && (date.closeWinTeam == if (date.openEastCheckable) date.closeTeam2 else date.closeTeam1)) {
+                    if (date.openScore > date.closeScore) {
+                        date.realWinTeam = date.closeWinTeam
+                        date.realResultScore = 1
+                    } else if (date.openScore < date.closeScore) {
+                        date.realWinTeam = date.openWinTeam
+                        date.realResultScore = 1
+                    } else {
+                        date.realResultScore = 0
+                    }
+
                 } else {
-                    date.realResultScore = 0
+                    if (date.openScore > date.closeScore) {
+                        date.realWinTeam = date.openWinTeam
+                        date.realResultScore = 1
+                    } else if (date.openScore < date.closeScore) {
+                        date.realWinTeam = date.closeWinTeam
+                        date.realResultScore = 1
+                    } else {
+                        date.realResultScore = 0
+                    }
                 }
             }
         }
