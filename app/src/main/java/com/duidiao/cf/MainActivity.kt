@@ -1,8 +1,11 @@
 package com.duidiao.cf
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -25,17 +28,55 @@ class MainActivity : ComponentActivity() {
     private var delete: ImageView? = null
     private var currentPosition = 0
     private var adapter: MyAdapter? = null
+    private var localTeam1:String = ""
+    private var localTeam2:String = ""
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         initView()
         initList()
         initRecycleView()
+        showDialog()
+    }
+
+    private fun showDialog() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.custom_dialog_view, null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(dialogView)
+        val dialog = builder.create()
+
+        val team1 = dialogView.findViewById<EditText>(R.id.team1)
+        val team2 = dialogView.findViewById<EditText>(R.id.team2)
+        val save = dialogView.findViewById<TextView>(R.id.save)
+
+        save.setOnClickListener {
+            val team1 = team1.text.toString()
+            val team2 = team2.text.toString()
+            if (team1.isEmpty()) {
+                Toast.makeText(this, "战队1 名称不能为空", Toast.LENGTH_SHORT).show()
+            }
+            if (team2.isEmpty()) {
+                Toast.makeText(this, "战队2 名称不能为空", Toast.LENGTH_SHORT).show()
+            }
+            if (team1.length > 6 || team2.length > 6){
+                Toast.makeText(this, "战队名称限定6个字以内", Toast.LENGTH_SHORT).show()
+            }
+
+            localTeam1 = team1
+            localTeam2 = team2
+            dateList[0].openTeam1 = localTeam1
+            dateList[0].openTeam2= localTeam2
+            dateList[0].closeTeam1 = localTeam1
+            dateList[0].closeTeam2= localTeam2
+            adapter?.notifyDataSetChanged()
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 
     private fun initList() {
-        var item = Item(index="0")
+        var item = Item(index = "0", openTeam1 = localTeam1, openTeam2 = localTeam2, closeTeam1 = localTeam1, closeTeam2 = localTeam2)
         dateList.add(item)
     }
 
@@ -61,9 +102,12 @@ class MainActivity : ComponentActivity() {
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                     currentPosition = layoutManager.findFirstCompletelyVisibleItemPosition()
                     if (currentPosition != RecyclerView.NO_POSITION) {
-                        Log.i(TAG, "position $currentPosition, data= ${
-                            dateList?.get(currentPosition).toString()}")
-                        index?.text = "第 ${currentPosition+1} 局"
+                        Log.i(
+                            TAG, "position $currentPosition, data= ${
+                                dateList?.get(currentPosition).toString()
+                            }"
+                        )
+                        index?.text = "第 ${currentPosition + 1} 局"
                         adapter?.notifyDataSetChanged()
                     }
                 }
@@ -83,7 +127,7 @@ class MainActivity : ComponentActivity() {
             handleScore(dateList)
         }
         next?.setOnClickListener {
-            var item = Item(index = "${dateList.size}")
+            var item = Item(index = "${dateList.size}", openTeam1 = localTeam1, openTeam2 = localTeam2, closeTeam1 = localTeam1, closeTeam2 = localTeam2)
             dateList.add(item)
 
             for (d in dateList) {
@@ -111,9 +155,9 @@ class MainActivity : ComponentActivity() {
         var team2 = 0
         for (list in dataList!!) {
             Log.i(TAG, "list = ${list.realResultScore}, ${list.realWinTeam}")
-            if (list.realWinTeam == "1队") {
+            if (list.realWinTeam == localTeam1) {
                 team1 += list.realResultScore
-            } else if (list.realWinTeam == "2队") {
+            } else if (list.realWinTeam == localTeam2) {
                 team2 += list.realResultScore
             } else {
                 Log.i(TAG, "default")

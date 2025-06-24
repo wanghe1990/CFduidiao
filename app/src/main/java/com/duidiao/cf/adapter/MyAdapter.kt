@@ -43,6 +43,8 @@ class MyAdapter(private val dataList: List<Item>?) :
         Log.i(TAG, "onBindViewHolder position = $position, data item = ${item.toString()}")
 //        item?.index = "第 ${position+1} 局"
 //        holder.index.text = item?.index.toString()
+        holder.openRbEast.text = item?.openTeam1
+        holder.openRbNorth.text = item?.openTeam2
         holder.openRbNorth.isSelected = item?.openNorthCheckable!!
         holder.openRbEast.isSelected = item?.openEastCheckable!!
         holder.openUseBig1.isSelected = item?.openUseBig1Select!!
@@ -55,6 +57,8 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.openSingleSmallKou.isSelected = item?.openSingleSmallKouSelect!!
         holder.openScore.setText(item?.openScore.toString())
 
+        holder.closeRbEast.text = item?.closeTeam2
+        holder.closeRbNorth.text = item?.closeTeam1
         holder.closeRbNorth.isSelected = item?.closeNorthCheckable!!
         holder.closeRbEast.isSelected = item?.closeEastCheckable!!
         holder.closeRbNorth.isClickable = false
@@ -85,10 +89,6 @@ class MyAdapter(private val dataList: List<Item>?) :
             item?.closeNorthCheckable = !isChecked
             item?.closeEastCheckable = isChecked
 
-            if (holder.openRbNorth.isSelected) {
-                item?.openTeam1 = "1队"
-                item?.openTeam2 = "2队"
-            }
         }
 
         holder.openRbEast.setOnClickListener {
@@ -103,10 +103,6 @@ class MyAdapter(private val dataList: List<Item>?) :
             item?.closeNorthCheckable = isChecked
             item?.closeEastCheckable = !isChecked
 
-            if (holder.openRbEast.isSelected) {
-                item?.openTeam1 = "1队"
-                item?.openTeam2 = "2队"
-            }
         }
         holder.openDoubleBigKou.setOnClickListener {
             val isSelect = holder.openDoubleBigKou.isSelected
