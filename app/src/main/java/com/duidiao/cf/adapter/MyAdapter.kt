@@ -14,7 +14,6 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.duidiao.cf.R
 import com.duidiao.cf.model.Item
@@ -38,8 +37,9 @@ class MyAdapter(private val dataList: List<Item>?) :
     // 绑定数据到ViewHolder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList?.get(position)
-        item?.index = "第 ${position+1} 局"
-        holder.index.text = item?.index.toString()
+        Log.i(TAG, "onBindViewHolder position = $position, data item = ${item.toString()}")
+//        item?.index = "第 ${position+1} 局"
+//        holder.index.text = item?.index.toString()
         holder.openRbNorth.isChecked = item?.openNorthCheckable!!
         holder.openRbEast.isChecked = item?.openEastCheckable!!
         holder.openUseBig1.isSelected = item?.openUseBig1Select!!
@@ -65,10 +65,10 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.closeSingleBigKou.isSelected = item?.closeSingleBigKouSelect!!
         holder.closeSingleSmallKou.isSelected = item?.closeSingleSmallKouSelect!!
         holder.closeScore.setText(item?.closeScore.toString())
-        initEvent(holder, item)
+        initEvent(holder, item, position)
     }
 
-    private fun initEvent(holder: ViewHolder, item: Item?) {
+    private fun initEvent(holder: ViewHolder, item: Item?, position: Int) {
         holder.openRbNorth.setOnCheckedChangeListener { button, isChecked ->
             item?.openNorthCheckable = isChecked
             item?.closeNorthCheckable = isChecked
@@ -213,6 +213,7 @@ class MyAdapter(private val dataList: List<Item>?) :
         }
 
         holder.start.setOnClickListener {
+            Log.i(TAG, "计算： position = $position, date item = ${item.toString()}")
             if (holder.openRadioGroup.checkedRadioButtonId == -1) {
                 Toast.makeText(ctx, "请先选择庄家", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -416,7 +417,7 @@ class MyAdapter(private val dataList: List<Item>?) :
 
     // ViewHolder类
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val index: TextView = itemView.findViewById(R.id.tv_index)
+//        val index: TextView = itemView.findViewById(R.id.tv_index)
         val openRadioGroup: RadioGroup = itemView.findViewById(R.id.rg_open)
         val openRbNorth: RadioButton = itemView.findViewById(R.id.rb_open_north) //东西
         val openRbEast: RadioButton = itemView.findViewById(R.id.rb_open_east) //南北

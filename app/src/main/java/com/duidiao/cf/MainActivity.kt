@@ -3,7 +3,9 @@ package com.duidiao.cf
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -15,12 +17,16 @@ class MainActivity : ComponentActivity() {
 
     private val TAG = "MainActivity"
     private var recyclerView: RecyclerView? = null
-    private var dataList: List<Item>? = null
+    private val dateList = mutableListOf<Item>()
     private var start: TextView? = null
     private var result: TextView? = null
+    private var index: TextView? = null
+    private var next: ImageView? = null
+    private var delete: ImageView? = null
     private var currentPosition = 0
+    private var adapter: MyAdapter? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         initView()
@@ -30,7 +36,7 @@ class MainActivity : ComponentActivity() {
 
     private fun initList() {
         var item = Item()
-        dataList = listOf(item, item, item)
+        dateList.add(item)
     }
 
     private fun initRecycleView() {
@@ -45,7 +51,7 @@ class MainActivity : ComponentActivity() {
         recyclerView?.overScrollMode = View.OVER_SCROLL_NEVER
 
 
-        val adapter = MyAdapter(dataList)
+        adapter = MyAdapter(dateList)
         recyclerView?.adapter = adapter
 
         // 添加页面切换监听
@@ -56,6 +62,9 @@ class MainActivity : ComponentActivity() {
                     currentPosition = layoutManager.findFirstCompletelyVisibleItemPosition()
                     if (currentPosition != RecyclerView.NO_POSITION) {
                         Log.i(TAG, "currentPosition,     position$currentPosition")
+                        Log.i(TAG, "position $currentPosition, data= ${
+                            dateList?.get(currentPosition).toString()}")
+                        index?.text = "第 ${currentPosition+1} 局"
                     }
                 }
             }
@@ -66,9 +75,28 @@ class MainActivity : ComponentActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         start = findViewById(R.id.tv_start)
         result = findViewById(R.id.tv_result)
+        delete = findViewById(R.id.iv_delete)
+        next = findViewById(R.id.iv_next)
+        index = findViewById(R.id.tv_index)
 
         start?.setOnClickListener {
-            handleScore(dataList)
+            handleScore(dateList)
+        }
+        next?.setOnClickListener {
+            var item = Item()
+            dateList.add(item)
+            recyclerView?.smoothScrollToPosition(dateList.size - 1)
+            adapter?.notifyDataSetChanged()
+            index?.text = "第 ${dateList.size - 1} 局"
+        }
+        delete?.setOnClickListener {
+            Log.i(TAG, "delete : dateList ${dateList.size}")
+            if (dateList.size > 1) {
+                dateList.removeAt(currentPosition)
+                adapter?.notifyDataSetChanged()
+            } else {
+                Toast.makeText(this, "最后一个不可删除", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
