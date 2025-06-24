@@ -45,28 +45,36 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
 
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/rg_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_open_east"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
                 android:text="南北(1队)"
                 android:layout_marginLeft="10dp"/>
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_open_north"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
                 android:text="东西(2队)"
                 android:layout_marginLeft="20dp"/>
 
-        </RadioGroup>
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/tv_clear"
@@ -78,7 +86,7 @@
 
     </LinearLayout>
 
-    <RadioGroup
+    <LinearLayout
         android:id="@+id/rg_open_kou"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,66 +96,61 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_open_double_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
-            android:text="对大抠"/>
+            android:text="大王抠"/>
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_open_double_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
-            android:text="对小抠"/>
+            android:text="大王抠"/>
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_open_single_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
-            android:text="大王抠"/>
+            android:text="小王抠"/>
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_open_single_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="小王抠"/>
 
-    </RadioGroup>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -158,62 +161,54 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_open_use_big1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消大王"/>
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_open_use_big2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消大王"/>
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_open_use_small1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消小王"/>
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_open_use_small2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消小王"/>
 
@@ -281,34 +276,40 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
 
-        <RadioGroup
+        <LinearLayout
             android:id="@+id/rg_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rb_close_north"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="东西(1队)"
-                android:clickable="false"
-                android:layout_marginLeft="10dp"/>
-
-            <RadioButton
+            <TextView
                 android:id="@+id/rb_close_east"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="南北(2队)"
-                android:clickable="false"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:text="南北(1队)"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/rb_close_north"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:text="东西(2队)"
                 android:layout_marginLeft="20dp"/>
 
-        </RadioGroup>
+        </LinearLayout>
 
     </LinearLayout>
 
-    <RadioGroup
+    <LinearLayout
         android:id="@+id/rg_close_kou"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -318,66 +319,58 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_close_double_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
-            android:text="对大抠"/>
+            android:text="大王抠"/>
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_close_double_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
-            android:text="对小抠"/>
+            android:text="大王抠"/>
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_close_single_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
-            android:text="大王抠"/>
+            android:text="小王抠"/>
 
-        <RadioButton
+        <TextView
             android:id="@+id/tv_close_single_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="小王抠"/>
 
-    </RadioGroup>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -388,62 +381,54 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_close_use_big1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消大王"/>
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_close_use_big2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消大王"/>
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_close_use_small1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消小王"/>
 
-        <CheckBox
+        <TextView
             android:id="@+id/tv_close_use_small2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/koudi_rb_background_shape"
+            android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:textSize="18dp"
             android:text="消小王"/>
 

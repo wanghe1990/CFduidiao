@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun initList() {
-        var item = Item()
+        var item = Item(index="0")
         dateList.add(item)
     }
 
@@ -61,10 +61,10 @@ class MainActivity : ComponentActivity() {
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                     currentPosition = layoutManager.findFirstCompletelyVisibleItemPosition()
                     if (currentPosition != RecyclerView.NO_POSITION) {
-                        Log.i(TAG, "currentPosition,     position$currentPosition")
                         Log.i(TAG, "position $currentPosition, data= ${
                             dateList?.get(currentPosition).toString()}")
                         index?.text = "第 ${currentPosition+1} 局"
+                        adapter?.notifyDataSetChanged()
                     }
                 }
             }
@@ -83,12 +83,18 @@ class MainActivity : ComponentActivity() {
             handleScore(dateList)
         }
         next?.setOnClickListener {
-            var item = Item()
+            var item = Item(index = "${dateList.size}")
             dateList.add(item)
+
+            for (d in dateList) {
+                Log.i(TAG, "d = ${d.toString()}")
+            }
+
             recyclerView?.smoothScrollToPosition(dateList.size - 1)
             adapter?.notifyDataSetChanged()
             index?.text = "第 ${dateList.size - 1} 局"
         }
+
         delete?.setOnClickListener {
             Log.i(TAG, "delete : dateList ${dateList.size}")
             if (dateList.size > 1) {
@@ -101,7 +107,18 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun handleScore(dataList: List<Item>?) {
-        Log.i(TAG, "")
+        var team1 = 0
+        var team2 = 0
+        for (list in dataList!!) {
+            Log.i(TAG, "list = ${list.realResultScore}, ${list.realWinTeam}")
+            if (list.realWinTeam == "1队") {
+                team1 += list.realResultScore
+            } else if (list.realWinTeam == "2队") {
+                team2 += list.realResultScore
+            } else {
+                Log.i(TAG, "default")
+            }
+        }
+        result?.text = "1队 ： $team1 分， 2队： $team2 分"
     }
-
 }

@@ -1,5 +1,6 @@
 package com.duidiao.cf.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -35,13 +37,14 @@ class MyAdapter(private val dataList: List<Item>?) :
     }
 
     // 绑定数据到ViewHolder
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList?.get(position)
         Log.i(TAG, "onBindViewHolder position = $position, data item = ${item.toString()}")
 //        item?.index = "第 ${position+1} 局"
 //        holder.index.text = item?.index.toString()
-        holder.openRbNorth.isChecked = item?.openNorthCheckable!!
-        holder.openRbEast.isChecked = item?.openEastCheckable!!
+        holder.openRbNorth.isSelected = item?.openNorthCheckable!!
+        holder.openRbEast.isSelected = item?.openEastCheckable!!
         holder.openUseBig1.isSelected = item?.openUseBig1Select!!
         holder.openUseBig2.isSelected = item?.openUseBig2Select!!
         holder.openUseSmall1.isSelected = item?.openUseSmall1Select!!
@@ -52,8 +55,8 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.openSingleSmallKou.isSelected = item?.openSingleSmallKouSelect!!
         holder.openScore.setText(item?.openScore.toString())
 
-        holder.closeRbNorth.isChecked = item?.closeNorthCheckable!!
-        holder.closeRbEast.isChecked = item?.closeEastCheckable!!
+        holder.closeRbNorth.isSelected = item?.closeNorthCheckable!!
+        holder.closeRbEast.isSelected = item?.closeEastCheckable!!
         holder.closeRbNorth.isClickable = false
         holder.closeRbEast.isClickable = false
         holder.closeUseBig1.isSelected = item?.closeUseBig1Select!!
@@ -68,66 +71,93 @@ class MyAdapter(private val dataList: List<Item>?) :
         initEvent(holder, item, position)
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun initEvent(holder: ViewHolder, item: Item?, position: Int) {
-        holder.openRbNorth.setOnCheckedChangeListener { button, isChecked ->
-            item?.openNorthCheckable = isChecked
-            item?.closeNorthCheckable = isChecked
-            holder.closeRbNorth.isChecked = isChecked
-            holder.closeRbEast.isChecked = !isChecked
-            if (isChecked) {
+        holder.openRbNorth.setOnClickListener {
+            val isChecked = holder.openRbNorth.isSelected
+            holder.openRbNorth.isSelected = !isChecked
+            holder.openRbEast.isSelected = isChecked
+            holder.closeRbNorth.isSelected = !isChecked
+            holder.closeRbEast.isSelected = isChecked
+
+            item?.openNorthCheckable = !isChecked
+            item?.openEastCheckable = isChecked
+            item?.closeNorthCheckable = !isChecked
+            item?.closeEastCheckable = isChecked
+
+            if (holder.openRbNorth.isSelected) {
                 item?.openTeam1 = "1队"
                 item?.openTeam2 = "2队"
             }
         }
 
-        holder.openRbEast.setOnCheckedChangeListener { button, isChecked ->
-            item?.openEastCheckable = isChecked
-            item?.closeEastCheckable = isChecked
-            holder.closeRbEast.isChecked = isChecked
-            holder.closeRbNorth.isChecked = !isChecked
-            if (isChecked) {
-                item?.closeTeam1 = "1队"
-                item?.closeTeam2 = "2队"
+        holder.openRbEast.setOnClickListener {
+            val isChecked = holder.openRbEast.isSelected
+            holder.openRbEast.isSelected = !isChecked
+            holder.openRbNorth.isSelected = isChecked
+            holder.closeRbEast.isSelected = !isChecked
+            holder.closeRbNorth.isSelected = isChecked
+
+            item?.openNorthCheckable = isChecked
+            item?.openEastCheckable = !isChecked
+            item?.closeNorthCheckable = isChecked
+            item?.closeEastCheckable = !isChecked
+
+            if (holder.openRbEast.isSelected) {
+                item?.openTeam1 = "1队"
+                item?.openTeam2 = "2队"
             }
         }
-        holder.openDoubleBigKou.setOnCheckedChangeListener { button, isChecked ->
-            Log.i(TAG, "openDoubleBigKouSelect = = $isChecked")
-            item?.openDoubleBigKouSelect = isChecked
+        holder.openDoubleBigKou.setOnClickListener {
+            val isSelect = holder.openDoubleBigKou.isSelected
+            holder.openDoubleBigKou.isSelected = !isSelect
+            item?.openDoubleBigKouSelect = holder.openDoubleBigKou.isSelected
         }
-        holder.openDoubleSmallKou.setOnCheckedChangeListener { button, isChecked ->
-            item?.openDoubleSmallKouSelect = isChecked
+        holder.openDoubleSmallKou.setOnClickListener {
+            val isSelect = holder.openDoubleSmallKou.isSelected
+            holder.openDoubleSmallKou.isSelected = !isSelect
+            item?.openDoubleSmallKouSelect = holder.openDoubleSmallKou.isSelected
         }
-        holder.openSingleBigKou.setOnCheckedChangeListener { button, isChecked ->
-            item?.openSingleBigKouSelect = isChecked
+        holder.openSingleBigKou.setOnClickListener {
+            val isSelect = holder.openSingleBigKou.isSelected
+            holder.openSingleBigKou.isSelected = !isSelect
+            item?.openSingleBigKouSelect = holder.openSingleBigKou.isSelected
         }
-        holder.openSingleSmallKou.setOnCheckedChangeListener { button, isChecked ->
-            item?.openSingleSmallKouSelect = isChecked
+        holder.openSingleSmallKou.setOnClickListener {
+            val isSelect = holder.openSingleSmallKou.isSelected
+            holder.openSingleSmallKou.isSelected = !isSelect
+            item?.openSingleSmallKouSelect = holder.openSingleSmallKou.isSelected
         }
 
-        holder.openUseBig1.setOnCheckedChangeListener { button, isChecked ->
-            item?.openUseBig1Select = isChecked
+        holder.openUseBig1.setOnClickListener {
+            val isSelect = holder.openUseBig1.isSelected
+            holder.openUseBig1.isSelected = !isSelect
+            item?.openUseBig1Select = holder.openUseBig1.isSelected
         }
-        holder.openUseBig2.setOnCheckedChangeListener { button, isChecked ->
-            item?.openUseBig2Select = isChecked
+        holder.openUseBig2.setOnClickListener {
+            val isSelect = holder.openUseBig2.isSelected
+            holder.openUseBig2.isSelected = !isSelect
+            item?.openUseBig2Select = holder.openUseBig2.isSelected
         }
-        holder.openUseSmall1.setOnCheckedChangeListener { button, isChecked ->
-            item?.openUseSmall1Select = isChecked
+        holder.openUseSmall1.setOnClickListener {
+            val isSelect = holder.openUseSmall1.isSelected
+            holder.openUseSmall1.isSelected = !isSelect
+            item?.openUseSmall1Select = holder.openUseSmall1.isSelected
         }
-        holder.openUseSmall2.setOnCheckedChangeListener { button, isChecked ->
-            item?.openUseSmall2Select = isChecked
+        holder.openUseSmall2.setOnClickListener {
+            val isSelect = holder.openUseSmall2.isSelected
+            holder.openUseSmall2.isSelected = !isSelect
+            item?.openUseSmall2Select = holder.openUseSmall2.isSelected
         }
 
         val textWatcherOpen = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.i(TAG, "addTextChangedListener beforeTextChanged ${p0.toString()}")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.i(TAG, "addTextChangedListener onTextChanged ${p0.toString()}")
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                Log.i(TAG, "addTextChangedListener afterTextChanged ${p0.toString()}")
                 if (p0.toString().isEmpty()) {
                     item?.openScore = 0
                 } else {
@@ -139,43 +169,56 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.openScore.addTextChangedListener(textWatcherOpen)
 
         //close
-        holder.closeDoubleBigKou.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeDoubleBigKouSelect = isChecked
+        holder.closeDoubleBigKou.setOnClickListener {
+            val isSelect = holder.closeDoubleBigKou.isSelected
+            holder.closeDoubleBigKou.isSelected = !isSelect
+            item?.closeDoubleBigKouSelect = holder.closeDoubleBigKou.isSelected
         }
-        holder.closeDoubleSmallKou.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeDoubleSmallKouSelect = isChecked
+        holder.closeDoubleSmallKou.setOnClickListener {
+            val isSelect = holder.closeDoubleSmallKou.isSelected
+            holder.closeDoubleSmallKou.isSelected = !isSelect
+            item?.closeDoubleSmallKouSelect = holder.closeDoubleSmallKou.isSelected
         }
-        holder.closeSingleBigKou.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeSingleBigKouSelect = isChecked
+        holder.closeSingleBigKou.setOnClickListener {
+            val isSelect = holder.closeSingleBigKou.isSelected
+            holder.closeSingleBigKou.isSelected = !isSelect
+            item?.closeSingleBigKouSelect = holder.closeSingleBigKou.isSelected
         }
-        holder.closeSingleSmallKou.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeSingleSmallKouSelect = isChecked
+        holder.closeSingleSmallKou.setOnClickListener {
+            val isSelect = holder.closeSingleSmallKou.isSelected
+            holder.closeSingleSmallKou.isSelected = !isSelect
+            item?.closeSingleSmallKouSelect = holder.closeSingleSmallKou.isSelected
         }
 
-        holder.closeUseBig1.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeUseBig1Select = isChecked
+        holder.closeUseBig1.setOnClickListener {
+            val isSelect = holder.closeUseBig1.isSelected
+            holder.closeUseBig1.isSelected = !isSelect
+            item?.closeUseBig1Select = holder.closeUseBig1.isSelected
         }
-        holder.closeUseBig2.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeUseBig2Select = isChecked
+        holder.closeUseBig2.setOnClickListener {
+            val isSelect = holder.closeUseBig2.isSelected
+            holder.closeUseBig2.isSelected = !isSelect
+            item?.closeUseBig2Select = holder.closeUseBig2.isSelected
         }
-        holder.closeUseSmall1.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeUseSmall1Select = isChecked
+        holder.closeUseSmall1.setOnClickListener {
+            val isSelect = holder.closeUseSmall1.isSelected
+            holder.closeUseSmall1.isSelected = !isSelect
+            item?.closeUseSmall1Select = holder.closeUseSmall1.isSelected
         }
-        holder.closeUseSmall2.setOnCheckedChangeListener { button, isChecked ->
-            item?.closeUseSmall2Select = isChecked
+        holder.closeUseSmall2.setOnClickListener {
+            val isSelect = holder.closeUseSmall2.isSelected
+            holder.closeUseSmall2.isSelected = !isSelect
+            item?.closeUseSmall2Select = holder.closeUseSmall2.isSelected
         }
 
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.i(TAG, "addTextChangedListener beforeTextChanged ${p0.toString()}")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.i(TAG, "addTextChangedListener onTextChanged ${p0.toString()}")
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                Log.i(TAG, "addTextChangedListener afterTextChanged ${p0.toString()}")
                 if (p0.toString().isEmpty()) {
                     item?.closeScore = 0
                 } else {
@@ -187,25 +230,37 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.closeScore.addTextChangedListener(textWatcher)
 
         holder.clear.setOnClickListener {
-            holder.openRadioGroup.clearCheck()
-            holder.openRgKou.clearCheck()
+//            holder.openRadioGroup.clearCheck()
+//            holder.openRgKou.clearCheck()
             holder.openScore.setText("")
             item?.openScore = 0
-            holder.openUseBig1.isChecked = false
-            holder.openUseBig2.isChecked = false
-            holder.openUseSmall1.isChecked = false
-            holder.openUseSmall2.isChecked = false
-            holder.openRgKou.clearCheck()
+            holder.openRbNorth.isSelected = false
+            holder.openRbEast.isSelected = false
+            holder.openDoubleBigKou.isSelected = false
+            holder.openDoubleSmallKou.isSelected = false
+            holder.openSingleBigKou.isSelected = false
+            holder.openSingleSmallKou.isSelected = false
+            holder.openUseBig1.isSelected = false
+            holder.openUseBig2.isSelected = false
+            holder.openUseSmall1.isSelected = false
+            holder.openUseSmall2.isSelected = false
+//            holder.openRgKou.clearCheck()
             item?.openResultScore = 0
 
-            holder.closeRadioGroup.clearCheck()
+//            holder.closeRadioGroup.clearCheck()
             holder.closeScore.setText("")
-            holder.closeRgKou.clearCheck()
+//            holder.closeRgKou.clearCheck()
             item?.closeScore = 0
-            holder.closeUseBig1.isChecked = false
-            holder.closeUseBig2.isChecked = false
-            holder.closeUseSmall1.isChecked = false
-            holder.closeUseSmall2.isChecked = false
+            holder. closeRbNorth.isSelected = false
+            holder. closeRbEast.isSelected = false
+            holder. closeDoubleBigKou.isSelected = false
+            holder. closeDoubleSmallKou.isSelected = false
+            holder. closeSingleBigKou.isSelected = false
+            holder. closeSingleSmallKou.isSelected = false
+            holder.closeUseBig1.isSelected = false
+            holder.closeUseBig2.isSelected = false
+            holder.closeUseSmall1.isSelected = false
+            holder.closeUseSmall2.isSelected = false
             item?.closeResultScore = 0
             item?.realWinTeam = ""
             item?.realResultScore = 0
@@ -214,7 +269,7 @@ class MyAdapter(private val dataList: List<Item>?) :
 
         holder.start.setOnClickListener {
             Log.i(TAG, "计算： position = $position, date item = ${item.toString()}")
-            if (holder.openRadioGroup.checkedRadioButtonId == -1) {
+            if (!holder.openRbEast.isSelected && !holder.openRbNorth.isSelected) {
                 Toast.makeText(ctx, "请先选择庄家", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -298,15 +353,15 @@ class MyAdapter(private val dataList: List<Item>?) :
         //扣抵
         if (date.openDoubleBigKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
-            date.openResultScore += 6
+            date.openResultScore += 3
         }
         if (date.openDoubleSmallKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
-            date.openResultScore += 4
+            date.openResultScore += 3
         }
         if (date.openSingleBigKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
-            date.openResultScore += 3
+            date.openResultScore += 2
         }
         if (date.openSingleSmallKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
@@ -341,15 +396,15 @@ class MyAdapter(private val dataList: List<Item>?) :
         //扣抵
         if (date.closeDoubleBigKouSelect) {
             date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
-            date.closeResultScore += 6
+            date.closeResultScore += 3
         }
         if (date.closeDoubleSmallKouSelect) {
             date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
-            date.closeResultScore += 4
+            date.closeResultScore += 3
         }
         if (date.closeSingleBigKouSelect) {
             date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
-            date.closeResultScore += 3
+            date.closeResultScore += 2
         }
         if (date.closeSingleSmallKouSelect) {
             date.closeWinTeam = if (date.closeEastCheckable) date.closeTeam1 else date.closeTeam2
@@ -393,6 +448,7 @@ class MyAdapter(private val dataList: List<Item>?) :
                         date.realResultScore = 1
                     } else {
                         date.realResultScore = 0
+                        date.realWinTeam = "default"
                     }
 
                 } else {
@@ -404,6 +460,7 @@ class MyAdapter(private val dataList: List<Item>?) :
                         date.realResultScore = 1
                     } else {
                         date.realResultScore = 0
+                        date.realWinTeam = "default"
                     }
                 }
             }
@@ -418,34 +475,34 @@ class MyAdapter(private val dataList: List<Item>?) :
     // ViewHolder类
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 //        val index: TextView = itemView.findViewById(R.id.tv_index)
-        val openRadioGroup: RadioGroup = itemView.findViewById(R.id.rg_open)
-        val openRbNorth: RadioButton = itemView.findViewById(R.id.rb_open_north) //东西
-        val openRbEast: RadioButton = itemView.findViewById(R.id.rb_open_east) //南北
-        val openUseBig1: CheckBox = itemView.findViewById(R.id.tv_open_use_big1)
-        val openUseBig2: CheckBox = itemView.findViewById(R.id.tv_open_use_big2)
-        val openUseSmall1: CheckBox = itemView.findViewById(R.id.tv_open_use_small1)
-        val openUseSmall2: CheckBox = itemView.findViewById(R.id.tv_open_use_small2)
-        val openRgKou: RadioGroup = itemView.findViewById(R.id.rg_open_kou)
-        val openDoubleBigKou: RadioButton = itemView.findViewById(R.id.tv_open_double_big)
-        val openDoubleSmallKou: RadioButton = itemView.findViewById(R.id.tv_open_double_small)
-        val openSingleBigKou: RadioButton = itemView.findViewById(R.id.tv_open_single_big)
-        val openSingleSmallKou: RadioButton = itemView.findViewById(R.id.tv_open_single_small)
+        val openRadioGroup: LinearLayout = itemView.findViewById(R.id.rg_open)
+        val openRbNorth: TextView = itemView.findViewById(R.id.rb_open_north) //东西
+        val openRbEast: TextView = itemView.findViewById(R.id.rb_open_east) //南北
+        val openUseBig1: TextView = itemView.findViewById(R.id.tv_open_use_big1)
+        val openUseBig2: TextView = itemView.findViewById(R.id.tv_open_use_big2)
+        val openUseSmall1: TextView = itemView.findViewById(R.id.tv_open_use_small1)
+        val openUseSmall2: TextView = itemView.findViewById(R.id.tv_open_use_small2)
+        val openRgKou: LinearLayout = itemView.findViewById(R.id.rg_open_kou)
+        val openDoubleBigKou: TextView = itemView.findViewById(R.id.tv_open_double_big)
+        val openDoubleSmallKou: TextView = itemView.findViewById(R.id.tv_open_double_small)
+        val openSingleBigKou: TextView = itemView.findViewById(R.id.tv_open_single_big)
+        val openSingleSmallKou: TextView = itemView.findViewById(R.id.tv_open_single_small)
         val openSubImage: ImageView = itemView.findViewById(R.id.iv_open_sub)
         val openScore: EditText = itemView.findViewById(R.id.et_open_score)
         val openAddImage: ImageView = itemView.findViewById(R.id.iv_open_add)
 
-        val closeRadioGroup: RadioGroup = itemView.findViewById(R.id.rg_close)
-        val closeRbNorth: RadioButton = itemView.findViewById(R.id.rb_close_north) //东西
-        val closeRbEast: RadioButton = itemView.findViewById(R.id.rb_close_east) //南北
-        val closeUseBig1: CheckBox = itemView.findViewById(R.id.tv_close_use_big1)
-        val closeUseBig2: CheckBox = itemView.findViewById(R.id.tv_close_use_big2)
-        val closeUseSmall1: CheckBox = itemView.findViewById(R.id.tv_close_use_small1)
-        val closeUseSmall2: CheckBox = itemView.findViewById(R.id.tv_close_use_small2)
-        val closeRgKou: RadioGroup = itemView.findViewById(R.id.rg_close_kou)
-        val closeDoubleBigKou: RadioButton = itemView.findViewById(R.id.tv_close_double_big)
-        val closeDoubleSmallKou: RadioButton = itemView.findViewById(R.id.tv_close_double_small)
-        val closeSingleBigKou: RadioButton = itemView.findViewById(R.id.tv_close_single_big)
-        val closeSingleSmallKou: RadioButton = itemView.findViewById(R.id.tv_close_single_small)
+        val closeRadioGroup: LinearLayout = itemView.findViewById(R.id.rg_close)
+        val closeRbNorth: TextView = itemView.findViewById(R.id.rb_close_north) //东西
+        val closeRbEast: TextView = itemView.findViewById(R.id.rb_close_east) //南北
+        val closeUseBig1: TextView = itemView.findViewById(R.id.tv_close_use_big1)
+        val closeUseBig2: TextView = itemView.findViewById(R.id.tv_close_use_big2)
+        val closeUseSmall1: TextView = itemView.findViewById(R.id.tv_close_use_small1)
+        val closeUseSmall2: TextView = itemView.findViewById(R.id.tv_close_use_small2)
+        val closeRgKou: LinearLayout = itemView.findViewById(R.id.rg_close_kou)
+        val closeDoubleBigKou: TextView = itemView.findViewById(R.id.tv_close_double_big)
+        val closeDoubleSmallKou: TextView = itemView.findViewById(R.id.tv_close_double_small)
+        val closeSingleBigKou: TextView = itemView.findViewById(R.id.tv_close_single_big)
+        val closeSingleSmallKou: TextView = itemView.findViewById(R.id.tv_close_single_small)
         val closeSubImage: ImageView = itemView.findViewById(R.id.iv_close_sub)
         val closeScore: EditText = itemView.findViewById(R.id.et_close_score)
         val closeAddImage: ImageView = itemView.findViewById(R.id.iv_close_add)
