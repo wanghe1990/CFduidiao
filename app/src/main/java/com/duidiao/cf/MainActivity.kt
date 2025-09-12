@@ -116,6 +116,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun initView() {
+        Log.i(TAG, "initView")
         recyclerView = findViewById(R.id.recyclerView)
         start = findViewById(R.id.tv_start)
         result = findViewById(R.id.tv_result)

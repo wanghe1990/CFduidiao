@@ -226,10 +226,8 @@ class MyAdapter(private val dataList: List<Item>?) :
         holder.closeScore.addTextChangedListener(textWatcher)
 
         holder.clear.setOnClickListener {
-//            holder.openRadioGroup.clearCheck()
-//            holder.openRgKou.clearCheck()
+            item?.reset()
             holder.openScore.setText("")
-            item?.openScore = 0
             holder.openRbNorth.isSelected = false
             holder.openRbEast.isSelected = false
             holder.openDoubleBigKou.isSelected = false
@@ -240,13 +238,7 @@ class MyAdapter(private val dataList: List<Item>?) :
             holder.openUseBig2.isSelected = false
             holder.openUseSmall1.isSelected = false
             holder.openUseSmall2.isSelected = false
-//            holder.openRgKou.clearCheck()
-            item?.openResultScore = 0
-
-//            holder.closeRadioGroup.clearCheck()
             holder.closeScore.setText("")
-//            holder.closeRgKou.clearCheck()
-            item?.closeScore = 0
             holder. closeRbNorth.isSelected = false
             holder. closeRbEast.isSelected = false
             holder. closeDoubleBigKou.isSelected = false
@@ -257,9 +249,6 @@ class MyAdapter(private val dataList: List<Item>?) :
             holder.closeUseBig2.isSelected = false
             holder.closeUseSmall1.isSelected = false
             holder.closeUseSmall2.isSelected = false
-            item?.closeResultScore = 0
-            item?.realWinTeam = ""
-            item?.realResultScore = 0
             holder.result.text = "赢家：___,得分:___"
         }
 
@@ -336,34 +325,43 @@ class MyAdapter(private val dataList: List<Item>?) :
         //开室计算
         if (date.openUseBig1Select) {
             date.openResultScore += 3
+            Log.i(TAG, "handlerScore: openUseBig1Select" + date.openResultScore)
         }
         if (date.openUseBig2Select) {
             date.openResultScore += 3
+            Log.i(TAG, "handlerScore: openUseBig2Select" + date.openResultScore)
         }
         if (date.openUseSmall1Select) {
             date.openResultScore += 2
+            Log.i(TAG, "handlerScore: openUseSmall1Select" + date.openResultScore)
         }
         if (date.openUseSmall2Select) {
             date.openResultScore += 2
+            Log.i(TAG, "handlerScore: openUseSmall2Select" + date.openResultScore)
         }
         //扣抵
         if (date.openDoubleBigKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
             date.openResultScore += 3
+            Log.i(TAG, "handlerScore: openDoubleBigKouSelect" + date.openResultScore)
         }
         if (date.openDoubleSmallKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
             date.openResultScore += 3
+            Log.i(TAG, "handlerScore: openDoubleSmallKouSelect" + date.openResultScore)
         }
         if (date.openSingleBigKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
             date.openResultScore += 2
+            Log.i(TAG, "handlerScore: openSingleBigKouSelect" + date.openResultScore)
         }
         if (date.openSingleSmallKouSelect) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
             date.openResultScore += 2
+            Log.i(TAG, "handlerScore: openSingleSmallKouSelect" + date.openResultScore)
         }
 
+        Log.i(TAG, "handlerScore: openScore" + date.openScore)
         if (date.openScore >= 80) {
             date.openWinTeam = if (date.openEastCheckable) date.openTeam2 else date.openTeam1
         }

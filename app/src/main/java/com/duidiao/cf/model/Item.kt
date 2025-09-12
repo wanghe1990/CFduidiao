@@ -41,6 +41,42 @@ data class Item(
 
     ) {
 
+    fun reset() {
+        index = ""
+        openNorthCheckable = false//zhuangjia
+        openEastCheckable = false//shifoushizhuang
+        openUseBig1Select = false
+        openUseBig2Select = false
+        openUseSmall1Select = false
+        openUseSmall2Select = false
+        openDoubleBigKouSelect = false
+        openDoubleSmallKouSelect = false
+        openSingleBigKouSelect = false
+        openSingleSmallKouSelect = false
+        openScore = 0
+        openWinTeam = openTeam1
+        openResultScore = 0
+
+        closeNorthCheckable = false//zhuangjia
+        closeEastCheckable = false//shifoushizhuang
+        closeUseBig1Select = false
+        closeUseBig2Select = false
+        closeUseSmall1Select = false
+        closeUseSmall2Select = false
+        closeDoubleBigKouSelect = false
+        closeDoubleSmallKouSelect = false
+        closeSingleBigKouSelect = false
+        closeSingleSmallKouSelect = false
+        closeScore = 0
+
+        closeResultScore  = 0
+        closeWinTeam = closeTeam1
+
+        realResultScore  = 0
+        realWinTeam = closeWinTeam
+
+    }
+
     override fun toString(): String {
         return "Item(index=$index, openNorthCheckable=$openNorthCheckable, openEastCheckable=$openEastCheckable, " +
                 "openUseBig1Select=$openUseBig1Select, openUseBig2Select=$openUseBig2Select, openUseSmall1Select=$openUseSmall1Select, " +
@@ -55,6 +91,5 @@ data class Item(
                 "closeTeam1='$closeTeam1', closeTeam2='$closeTeam2', closeWinTeam='$closeWinTeam', realResultScore=$realResultScore, " +
                 "realWinTeam='$realWinTeam')"
     }
-
 
 }
