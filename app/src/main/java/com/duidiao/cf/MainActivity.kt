@@ -1,5 +1,6 @@
 package com.duidiao.cf
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
@@ -7,27 +8,44 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.duidiao.cf.adapter.CountManagerAdapter
 import com.duidiao.cf.adapter.MyAdapter
+import com.duidiao.cf.model.CountManagerItem
 import com.duidiao.cf.model.Item
 
 class MainActivity : ComponentActivity() {
 
     private val TAG = "MainActivity"
     private var recyclerView: RecyclerView? = null
+    private var countManagerRecyclerView: RecyclerView? = null
     private val dateList = mutableListOf<Item>()
+    private val countManagerDateList = mutableListOf<CountManagerItem>()
     private var start: TextView? = null
     private var result: TextView? = null
     private var index: TextView? = null
     private var next: ImageView? = null
     private var delete: ImageView? = null
+    private var rlPlay: RelativeLayout? = null
+    private var rlCountManager: RelativeLayout? = null
+    private var ivPlay: ImageView? = null
+    private var tvPlay: TextView? = null
+    private var ivCountManager: ImageView? = null
+    private var tvCountManager: TextView? = null
+    private var scScore: ScrollView? = null
+    private var llCountManager: LinearLayout? = null
+
     private var currentPosition = 0
     private var adapter: MyAdapter? = null
+    private var countManagerAdapter: CountManagerAdapter? = null
     private var localTeam1:String = ""
     private var localTeam2:String = ""
 
@@ -37,7 +55,15 @@ class MainActivity : ComponentActivity() {
         initView()
         initList()
         initRecycleView()
+        initCountManagerRecycleView()
         showDialog()
+    }
+
+    private fun initCountManagerRecycleView() {
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        countManagerRecyclerView?.layoutManager = layoutManager
+        countManagerAdapter = CountManagerAdapter(countManagerDateList)
+        countManagerRecyclerView?.adapter = countManagerAdapter
     }
 
     private fun showDialog() {
@@ -115,6 +141,7 @@ class MainActivity : ComponentActivity() {
         })
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun initView() {
         Log.i(TAG, "initView")
         recyclerView = findViewById(R.id.recyclerView)
@@ -123,6 +150,15 @@ class MainActivity : ComponentActivity() {
         delete = findViewById(R.id.iv_delete)
         next = findViewById(R.id.iv_next)
         index = findViewById(R.id.tv_index)
+        rlPlay = findViewById(R.id.rl_play)
+        rlCountManager = findViewById(R.id.rl_count_manager)
+        ivPlay = findViewById(R.id.iv_play)
+        tvPlay = findViewById(R.id.tv_play)
+        ivCountManager = findViewById(R.id.iv_count_manager)
+        tvCountManager = findViewById(R.id.tv_count_manager)
+        scScore = findViewById(R.id.sc_score)
+        llCountManager = findViewById(R.id.ll_count_manager)
+        countManagerRecyclerView = findViewById(R.id.recycler_count_manager)
 
         start?.setOnClickListener {
             handleScore(dateList)
@@ -148,6 +184,24 @@ class MainActivity : ComponentActivity() {
             } else {
                 Toast.makeText(this, "最后一个不可删除", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        rlPlay?.setOnClickListener{
+            ivPlay?.setImageResource(R.drawable.ic_play_select)
+            tvPlay?.setTextColor(getColor(R.color.bottom_bar_select_color))
+            ivCountManager?.setImageResource(R.drawable.ic_count_manager_normal)
+            tvCountManager?.setTextColor(getColor(R.color.bottom_bar_normal_color))
+            scScore?.visibility = View.VISIBLE
+            llCountManager?.visibility = View.GONE
+        }
+
+        rlCountManager?.setOnClickListener {
+            ivPlay?.setImageResource(R.drawable.ic_play_normal)
+            tvPlay?.setTextColor(getColor(R.color.bottom_bar_normal_color))
+            ivCountManager?.setImageResource(R.drawable.ic_count_manager_select)
+            tvCountManager?.setTextColor(getColor(R.color.bottom_bar_select_color))
+            scScore?.visibility = View.GONE
+            llCountManager?.visibility = View.VISIBLE
         }
     }
 
