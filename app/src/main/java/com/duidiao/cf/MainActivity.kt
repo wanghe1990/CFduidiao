@@ -152,8 +152,8 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun handleScore(dataList: List<Item>?) {
-        var team1 = 0
-        var team2 = 0
+        var team1 = 0.0f
+        var team2 = 0.0f
         for (list in dataList!!) {
             Log.i(TAG, "list = ${list.realResultScore}, ${list.realWinTeam}")
             if (list.realWinTeam == localTeam1) {
@@ -164,6 +164,28 @@ class MainActivity : ComponentActivity() {
                 Log.i(TAG, "default")
             }
         }
-        result?.text = "1队 ： $team1 分， 2队： $team2 分"
+        Log.i(TAG, "team1 = $team1, team2 = $team2")
+        if (team1 >= team2) {
+            var team1Result = ((team1 - team2) / 2)
+            Log.i(TAG, "handleScore: team1Result = $team1Result")
+            if (team1Result + 10 > 20){
+                team1Result = 20.0f
+            } else {
+                team1Result += 10
+            }
+            team1 = team1Result
+            team2 = 20 - team1
+        } else {
+            var team2Result = ((team2 - team1) / 2)
+            Log.i(TAG, "handleScore: team2Result = $team2Result")
+            if (team2Result + 10 > 20){
+                team2Result = 20.0f
+            } else {
+                team2Result += 10
+            }
+            team2 = team2Result
+            team1 = 20 - team2
+        }
+        result?.text = "$localTeam1 ： $team1 分， ${localTeam2}： $team2 分"
     }
 }
