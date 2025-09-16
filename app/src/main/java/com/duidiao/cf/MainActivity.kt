@@ -77,9 +77,9 @@ class MainActivity : ComponentActivity() {
         val save = dialogView.findViewById<TextView>(R.id.save)
 
         save.setOnClickListener {
-            val team1 = team1.text.toString()
-            val team2 = team2.text.toString()
-            if (team1.isEmpty()) {
+            val team1 = team1.text.trim().toString()
+            val team2 = team2.text.trim().toString()
+            if (team1.trim().isEmpty()) {
                 Toast.makeText(this, "战队1 名称不能为空", Toast.LENGTH_SHORT).show()
             }
             if (team2.isEmpty()) {

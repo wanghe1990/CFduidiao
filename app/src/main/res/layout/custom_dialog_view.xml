@@ -27,6 +27,8 @@
             android:layout_toRightOf="@+id/table1"
             android:layout_alignBottom="@+id/table1"
             android:layout_marginRight="40dp"
+            android:lines="1"
+            android:singleLine="true"
             android:textSize="20dp"
             android:text="南北"/>
 
@@ -47,6 +49,8 @@
             android:layout_toRightOf="@+id/table2"
             android:layout_alignBottom="@+id/table2"
             android:layout_marginRight="40dp"
+            android:lines="1"
+            android:singleLine="true"
             android:textSize="20dp"
             android:text="东西"/>
 
