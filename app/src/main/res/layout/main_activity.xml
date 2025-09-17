@@ -18,7 +18,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="15dp">
 
                 <ImageView
                     android:id="@+id/iv_delete"
@@ -46,6 +46,12 @@
                     android:src="@drawable/next"/>
 
             </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/koudi_checked_disable"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -106,9 +112,9 @@
 
             <ImageView
                 android:id="@+id/iv_play"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_play_select"/>
 
@@ -117,9 +123,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv_play"
-                android:layout_marginTop="5dp"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"
+                android:textSize="16dp"
+                android:layout_marginBottom="5dp"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/bottom_bar_select_color"
                 android:text="比赛"/>
@@ -134,9 +139,9 @@
 
             <ImageView
                 android:id="@+id/iv_count_manager"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="5dp"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_count_manager_normal"/>
 
@@ -145,9 +150,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv_count_manager"
-                android:layout_marginTop="5dp"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp"
+                android:textSize="16dp"
+                android:layout_marginBottom="5dp"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/bottom_bar_normal_color"
                 android:text="统计"/>

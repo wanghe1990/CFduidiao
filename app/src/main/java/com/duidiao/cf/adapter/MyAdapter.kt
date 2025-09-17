@@ -422,6 +422,9 @@ class MyAdapter(private val dataList: List<Item>?) :
             if (date.closeResultScore == 0) {
                 date.realResultScore += 1
             }
+            if (date.openResultScore > 0 && date.closeResultScore > 0) {
+                date.realResultScore += 1
+            }
             date.realWinTeam = date.openWinTeam
         } else {
             if (date.openResultScore > date.closeResultScore) {

@@ -75,56 +75,52 @@
             android:id="@+id/tv_open_double_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="大王抠底"/>
+            android:textSize="16dp"
+            android:text="大王\n抠底"/>
 
         <TextView
             android:id="@+id/tv_open_double_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:button="@null"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="大王抠底"/>
+            android:textSize="16dp"
+            android:text="大王\n抠底"/>
 
         <TextView
             android:id="@+id/tv_open_single_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:button="@null"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="小王抠底"/>
+            android:textSize="16dp"
+            android:text="小王\n抠底"/>
 
         <TextView
             android:id="@+id/tv_open_single_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:button="@null"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="小王抠底"/>
+            android:textSize="16dp"
+            android:text="小王\n抠底"/>
 
     </LinearLayout>
 
@@ -140,53 +136,49 @@
             android:id="@+id/tv_open_use_big1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒大王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n大王"/>
 
         <TextView
             android:id="@+id/tv_open_use_big2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒大王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n大王"/>
 
         <TextView
             android:id="@+id/tv_open_use_small1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒小王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n小王"/>
 
         <TextView
             android:id="@+id/tv_open_use_small2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒小王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n小王"/>
 
     </LinearLayout>
 
@@ -232,7 +224,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#fff000"
+        android:background="@color/koudi_checked_disable"
         android:layout_marginTop="30dp"/>
 
     <LinearLayout
@@ -298,53 +290,49 @@
             android:id="@+id/tv_close_double_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="大王抠底"/>
+            android:textSize="16dp"
+            android:text="大王\n抠底"/>
 
         <TextView
             android:id="@+id/tv_close_double_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="大王抠底"/>
+            android:textSize="16dp"
+            android:text="大王\n抠底"/>
 
         <TextView
             android:id="@+id/tv_close_single_big"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="小王抠底"/>
+            android:textSize="16dp"
+            android:text="小王\n抠底"/>
 
         <TextView
             android:id="@+id/tv_close_single_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="小王抠底"/>
+            android:textSize="16dp"
+            android:text="小王\n抠底"/>
 
     </LinearLayout>
 
@@ -360,53 +348,49 @@
             android:id="@+id/tv_close_use_big1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒大王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n大王"/>
 
         <TextView
             android:id="@+id/tv_close_use_big2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒大王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n大王"/>
 
         <TextView
             android:id="@+id/tv_close_use_small1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒小王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n小王"/>
 
         <TextView
             android:id="@+id/tv_close_use_small2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:background="@drawable/text_team_selector"
             android:textColor="@color/text_color_selector"
             android:gravity="center"
             android:padding="10dp"
-            android:textSize="18dp"
-            android:text="潇洒小王"/>
+            android:textSize="16dp"
+            android:text="潇洒\n小王"/>
 
     </LinearLayout>
     <LinearLayout
