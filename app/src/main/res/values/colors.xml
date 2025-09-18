@@ -15,6 +15,6 @@
 
     <color name="bottom_bar_select_color">#1296db</color>
     <color name="bottom_bar_normal_color">#707070</color>
-    <color name="count_manager_line_bg">#B3707070</color>
+    <color name="count_manager_line_bg">#30707070</color>
 
 </resources>

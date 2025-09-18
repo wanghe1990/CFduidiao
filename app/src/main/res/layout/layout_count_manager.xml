@@ -1,66 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ll_count_manager"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/count_manager_title_bg_shape"
     android:visibility="gone"
     tools:visibility="visible">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#dbdbdb">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#f6fffa"
+        android:layout_margin="50dp"
+        android:text="战队列表"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            android:text="战队列表"/>
-
-        <ImageView
-            android:id="@+id/iv_count_manager_create"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/next"
-            android:layout_marginRight="30dp"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp"
-            android:textSize="16dp"
-            android:text="名称"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="50dp"
-            android:textSize="16dp"
-            android:text="得分"/>
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_count_manager_create"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/next"
+        android:layout_marginRight="50dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_count_manager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="120dp"/>
 
-</LinearLayout>
+</RelativeLayout>

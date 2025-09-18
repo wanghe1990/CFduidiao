@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
     private var ivCountManager: ImageView? = null
     private var tvCountManager: TextView? = null
     private var scScore: ScrollView? = null
-    private var llCountManager: LinearLayout? = null
+    private var llCountManager: RelativeLayout? = null
     private var countManagerCreate: ImageView? = null
 
     private var currentPosition = 0
