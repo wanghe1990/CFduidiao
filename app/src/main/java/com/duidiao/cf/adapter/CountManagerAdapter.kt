@@ -28,6 +28,7 @@ class CountManagerAdapter(
         val countData = mCountDataList!![position]
         // 设置数据到视图
         holder.teamName.text = countData.teamName
+        holder.teamScore.text = countData.teamScore.toString()
 
         // 设置点击事件
         if (mOnItemClickListener != null) {
@@ -53,6 +54,7 @@ class CountManagerAdapter(
      */
     fun updateData(newData: MutableList<CountManagerItem>?) {
         this.mCountDataList = newData
+        mCountDataList?.sortByDescending { it.teamScore }
         notifyDataSetChanged()
     }
 
@@ -100,5 +102,6 @@ class CountManagerAdapter(
     class CountViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // 初始化视图
         var teamName: TextView = itemView.findViewById<TextView>(R.id.team_name)
+        var teamScore: TextView = itemView.findViewById<TextView>(R.id.tv_score)
     }
 }

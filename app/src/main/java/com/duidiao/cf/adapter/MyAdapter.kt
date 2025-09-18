@@ -22,7 +22,7 @@ import com.duidiao.cf.model.Item
 
 
 // 适配器类（独立文件）
-class MyAdapter(private val dataList: List<Item>?) :
+class MyAdapter(private var dataList: List<Item>?) :
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     private val TAG = "MyAdapter"
@@ -36,6 +36,10 @@ class MyAdapter(private val dataList: List<Item>?) :
         return ViewHolder(view)
     }
 
+    fun update(list: List<Item>) {
+        dataList = list
+        notifyDataSetChanged()
+    }
     // 绑定数据到ViewHolder
     @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

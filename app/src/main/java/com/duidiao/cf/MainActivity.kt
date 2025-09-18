@@ -21,13 +21,14 @@ import com.duidiao.cf.adapter.CountManagerAdapter
 import com.duidiao.cf.adapter.MyAdapter
 import com.duidiao.cf.model.CountManagerItem
 import com.duidiao.cf.model.Item
+import com.duidiao.cf.presenter.CountManagerPresenter
 
 class MainActivity : ComponentActivity() {
 
     private val TAG = "MainActivity"
     private var recyclerView: RecyclerView? = null
     private var countManagerRecyclerView: RecyclerView? = null
-    private val dateList = mutableListOf<Item>()
+    private val playDateList = mutableListOf<Item>()
     private val countManagerDateList = mutableListOf<CountManagerItem>()
     private var start: TextView? = null
     private var result: TextView? = null
@@ -42,12 +43,15 @@ class MainActivity : ComponentActivity() {
     private var tvCountManager: TextView? = null
     private var scScore: ScrollView? = null
     private var llCountManager: LinearLayout? = null
+    private var countManagerCreate: ImageView? = null
 
     private var currentPosition = 0
     private var adapter: MyAdapter? = null
     private var countManagerAdapter: CountManagerAdapter? = null
     private var localTeam1:String = ""
     private var localTeam2:String = ""
+    private var countManagerPresenter: CountManagerPresenter? = null
+    private var isFinished = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +61,7 @@ class MainActivity : ComponentActivity() {
         initRecycleView()
         initCountManagerRecycleView()
         showDialog()
+        countManagerPresenter = CountManagerPresenter(this)
     }
 
     private fun initCountManagerRecycleView() {
@@ -79,31 +84,63 @@ class MainActivity : ComponentActivity() {
         save.setOnClickListener {
             val team1 = team1.text.trim().toString()
             val team2 = team2.text.trim().toString()
-            if (team1.trim().isEmpty()) {
+            if (team1.isEmpty()) {
                 Toast.makeText(this, "战队1 名称不能为空", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
             if (team2.isEmpty()) {
                 Toast.makeText(this, "战队2 名称不能为空", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (team1 == team2) {
+                Toast.makeText(this, "战队名称不能相同", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
             if (team1.length > 6 || team2.length > 6){
                 Toast.makeText(this, "战队名称限定6个字以内", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            Log.i(TAG, "showDialog: team1 = $team1 , team2 = $team2, size = ${countManagerDateList.size}")
+            if (!isFinished && localTeam1.isNotEmpty() && localTeam2.isNotEmpty()) {
+                Toast.makeText(this, "其他战队比赛还未结束", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
             localTeam1 = team1
             localTeam2 = team2
-            dateList[0].openTeam1 = localTeam1
-            dateList[0].openTeam2= localTeam2
-            dateList[0].closeTeam1 = localTeam1
-            dateList[0].closeTeam2= localTeam2
-            adapter?.notifyDataSetChanged()
+            playDateList.clear()
+            var item = Item(index = "0", openTeam1 = localTeam1, openTeam2 = localTeam2, closeTeam1 = localTeam1, closeTeam2 = localTeam2)
+            playDateList.add(item)
+            adapter?.update(playDateList)
+            createCountManagerDate(localTeam1)
+            createCountManagerDate(localTeam2)
+            clearCache()
             dialog.dismiss()
         }
         dialog.show()
     }
 
+    private fun clearCache() {
+        result?.text = ""
+        isFinished = false
+    }
+
+    private fun createCountManagerDate(team: String) {
+        for (listItem in countManagerDateList) {
+            if (listItem.teamName == team) {
+                return
+            }
+        }
+        var countManagerItem = CountManagerItem(teamName = team)
+        countManagerDateList.add(countManagerItem)
+        Log.i(TAG, "createCountManagerDate: countManagerDateList size = ${countManagerDateList.size}")
+        countManagerAdapter?.updateData(countManagerDateList)
+    }
+
     private fun initList() {
         var item = Item(index = "0", openTeam1 = localTeam1, openTeam2 = localTeam2, closeTeam1 = localTeam1, closeTeam2 = localTeam2)
-        dateList.add(item)
+        playDateList.add(item)
     }
 
     private fun initRecycleView() {
@@ -118,7 +155,7 @@ class MainActivity : ComponentActivity() {
         recyclerView?.overScrollMode = View.OVER_SCROLL_NEVER
 
 
-        adapter = MyAdapter(dateList)
+        adapter = MyAdapter(playDateList)
         recyclerView?.adapter = adapter
 
         // 添加页面切换监听
@@ -130,11 +167,11 @@ class MainActivity : ComponentActivity() {
                     if (currentPosition != RecyclerView.NO_POSITION) {
                         Log.i(
                             TAG, "position $currentPosition, data= ${
-                                dateList?.get(currentPosition).toString()
+                                playDateList?.get(currentPosition).toString()
                             }"
                         )
                         index?.text = "第 ${currentPosition + 1} 局"
-                        adapter?.notifyDataSetChanged()
+                        adapter?.update(playDateList)
                     }
                 }
             }
@@ -159,28 +196,39 @@ class MainActivity : ComponentActivity() {
         scScore = findViewById(R.id.sc_score)
         llCountManager = findViewById(R.id.ll_count_manager)
         countManagerRecyclerView = findViewById(R.id.recycler_count_manager)
+        countManagerCreate = findViewById(R.id.iv_count_manager_create)
 
         start?.setOnClickListener {
-            handleScore(dateList)
+            handleScore(playDateList)
         }
         next?.setOnClickListener {
-            var item = Item(index = "${dateList.size}", openTeam1 = localTeam1, openTeam2 = localTeam2, closeTeam1 = localTeam1, closeTeam2 = localTeam2)
-            dateList.add(item)
 
-            for (d in dateList) {
+            if (isFinished) {
+                Toast.makeText(this, "对局结束，无法操作", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            var item = Item(index = "${playDateList.size}", openTeam1 = localTeam1, openTeam2 = localTeam2, closeTeam1 = localTeam1, closeTeam2 = localTeam2)
+            playDateList.add(item)
+
+            for (d in playDateList) {
                 Log.i(TAG, "d = ${d.toString()}")
             }
 
-            recyclerView?.smoothScrollToPosition(dateList.size - 1)
-            adapter?.notifyDataSetChanged()
-            index?.text = "第 ${dateList.size - 1} 局"
+            recyclerView?.smoothScrollToPosition(playDateList.size - 1)
+            adapter?.update(playDateList)
+            index?.text = "第 ${playDateList.size - 1} 局"
         }
 
         delete?.setOnClickListener {
-            Log.i(TAG, "delete : dateList ${dateList.size}")
-            if (dateList.size > 1) {
-                dateList.removeAt(currentPosition)
-                adapter?.notifyDataSetChanged()
+            Log.i(TAG, "delete : dateList ${playDateList.size}")
+            if (isFinished) {
+                Toast.makeText(this, "对局结束，无法操作", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (playDateList.size > 1) {
+                playDateList.removeAt(currentPosition)
+                adapter?.update(playDateList)
             } else {
                 Toast.makeText(this, "最后一个不可删除", Toast.LENGTH_SHORT).show()
             }
@@ -202,6 +250,10 @@ class MainActivity : ComponentActivity() {
             tvCountManager?.setTextColor(getColor(R.color.bottom_bar_select_color))
             scScore?.visibility = View.GONE
             llCountManager?.visibility = View.VISIBLE
+        }
+
+        countManagerCreate?.setOnClickListener {
+            showDialog()
         }
     }
 
@@ -229,6 +281,14 @@ class MainActivity : ComponentActivity() {
             }
             team1 = team1Result
             team2 = 20 - team1
+            for (listItem in countManagerDateList) {
+                if (localTeam1 == listItem.teamName) {
+                    listItem.teamScore += team1
+                }
+                if (localTeam2 == listItem.teamName) {
+                    listItem.teamScore += team2
+                }
+            }
         } else {
             var team2Result = ((team2 - team1) / 2)
             Log.i(TAG, "handleScore: team2Result = $team2Result")
@@ -239,7 +299,19 @@ class MainActivity : ComponentActivity() {
             }
             team2 = team2Result
             team1 = 20 - team2
+
+            for (listItem in countManagerDateList) {
+                if (localTeam1 == listItem.teamName) {
+                    listItem.teamScore += team1
+                }
+                if (localTeam2 == listItem.teamName) {
+                    listItem.teamScore += team2
+                }
+            }
         }
+        countManagerAdapter?.updateData(countManagerDateList)
+
         result?.text = "$localTeam1 ： $team1 分， ${localTeam2}： $team2 分"
+        isFinished = true
     }
 }
