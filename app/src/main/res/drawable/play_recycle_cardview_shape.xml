@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 阴影部分 -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- 阴影颜色和模糊效果 -->
+            <solid android:color="#44000000" />
+            <!-- 圆角 -->
+            <corners android:radius="8dp" />
+            <!-- 阴影的偏移量和大小 -->
+            <padding
+                android:bottom="2dp"
+                android:left="2dp"
+                android:right="2dp"
+                android:top="2dp" />
+        </shape>
+    </item>
+
+    <!-- 卡片主体部分 -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- 卡片背景色 -->
+            <solid android:color="@android:color/white" />
+            <!-- 卡片圆角 -->
+            <corners android:radius="8dp" />
+            <!-- 内边距，避免内容与边缘太近 -->
+            <padding
+                android:bottom="16dp"
+                android:left="16dp"
+                android:right="16dp"
+                android:top="16dp" />
+        </shape>
+    </item>
+</layer-list>

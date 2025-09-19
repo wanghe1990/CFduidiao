@@ -10,7 +10,7 @@
 
     <color name="koudi_checked_enable">#ffdd99</color>
     <color name="koudi_checked_disable">#661E293D</color>
-    <color name="open_home_color">#3333ff</color>
+    <color name="open_home_color">#04d1d4</color>
     <color name="score_color">#000044</color>
 
     <color name="bottom_bar_select_color">#1296db</color>

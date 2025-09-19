@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#23e0e2">
+    android:background="@drawable/count_manager_title_bg_shape">
 
     <ScrollView
         android:id="@+id/sc_score"
@@ -35,6 +35,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:text="第 1 局"/>
 
                 <ImageView
@@ -52,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="15dp"
-                android:background="@color/koudi_checked_disable"/>
+                android:background="#40FFFFFF"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -66,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -73,9 +76,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="20dp"
-                    android:text="总比分 : "/>
+                    android:layout_marginLeft="30dp"
+                    android:textSize="18dp"
+                    android:text="总比分:"/>
 
                 <TextView
                     android:id="@+id/tv_start"
@@ -84,7 +87,7 @@
                     android:gravity="center"
                     android:textSize="18dp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="30dp"
                     android:layout_centerVertical="true"
                     android:textColor="@color/white"
                     android:background="@drawable/single_count_shape"
@@ -95,7 +98,10 @@
         </LinearLayout>
     </ScrollView>
 
-    <include layout="@layout/layout_count_manager"/>
+    <include layout="@layout/layout_count_manager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_bottom_bar"/>
 
     <LinearLayout
         android:id="@+id/ll_bottom_bar"

@@ -38,7 +38,7 @@ data class Item(
 
     var realResultScore : Int = 0,
     var realWinTeam : String = closeWinTeam,
-
+    var isFinished: Boolean =false
     ) {
 
     fun reset() {

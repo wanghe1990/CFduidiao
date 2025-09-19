@@ -7,442 +7,456 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="开室"
-            android:padding="8dp"
-            android:background="@drawable/home_shape"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+        android:background="@drawable/play_recycle_cardview_shape"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/rg_open"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/rb_open_east"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:background="@drawable/text_team_selector"
-                android:textColor="@color/text_color_selector"
-                android:text="南北(1队)"
-                android:layout_marginLeft="10dp"/>
+                android:text="开室"
+                android:padding="8dp"
+                android:background="@drawable/home_shape"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/rb_open_north"
+            <LinearLayout
+                android:id="@+id/rg_open"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:background="@drawable/text_team_selector"
-                android:textColor="@color/text_color_selector"
-                android:text="东西(2队)"
-                android:layout_marginLeft="20dp"/>
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/rb_open_east"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:background="@drawable/text_team_selector"
+                    android:textColor="@color/text_color_selector"
+                    android:text="南北(1队)"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:id="@+id/rb_open_north"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:background="@drawable/text_team_selector"
+                    android:textColor="@color/text_color_selector"
+                    android:text="东西(2队)"
+                    android:layout_marginLeft="20dp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/tv_clear"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/clear"/>
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/tv_clear"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/clear"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rg_open_kou"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_open_double_big"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="大王\n抠底"/>
-
-        <TextView
-            android:id="@+id/tv_open_double_small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="大王\n抠底"/>
-
-        <TextView
-            android:id="@+id/tv_open_single_big"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="小王\n抠底"/>
-
-        <TextView
-            android:id="@+id/tv_open_single_small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:button="@null"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="小王\n抠底"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_open_use_big1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n大王"/>
-
-        <TextView
-            android:id="@+id/tv_open_use_big2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n大王"/>
-
-        <TextView
-            android:id="@+id/tv_open_use_small1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n小王"/>
-
-        <TextView
-            android:id="@+id/tv_open_use_small2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n小王"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="得分:"
-            android:textSize="20sp"/>
-
-        <ImageView
-            android:id="@+id/iv_open_sub"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/sub"
-            android:layout_marginLeft="20dp"/>
-
-        <EditText
-            android:id="@+id/et_open_score"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:gravity="center"
-            android:text="0"
-            android:background="@drawable/score_shape"
-            android:layout_marginLeft="5dp"/>
-
-        <ImageView
-            android:id="@+id/iv_open_add"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/add"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/koudi_checked_disable"
-        android:layout_marginTop="30dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="闭室"
-            android:padding="8dp"
-            android:background="@drawable/home_shape"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-
         <LinearLayout
-            android:id="@+id/rg_close"
-            android:layout_width="wrap_content"
+            android:id="@+id/rg_open_kou"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/rb_close_north"
+                android:id="@+id/tv_open_double_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
+                android:layout_marginLeft="15dp"
                 android:background="@drawable/text_team_selector"
                 android:textColor="@color/text_color_selector"
-                android:text="东西(2队)"
-                android:layout_marginLeft="20dp"/>
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="大王\n抠底"/>
 
             <TextView
-                android:id="@+id/rb_close_east"
+                android:id="@+id/tv_open_double_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
+                android:layout_marginLeft="15dp"
+                android:button="@null"
                 android:background="@drawable/text_team_selector"
                 android:textColor="@color/text_color_selector"
-                android:text="南北(1队)"
-                android:layout_marginLeft="10dp"/>
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="大王\n抠底"/>
+
+            <TextView
+                android:id="@+id/tv_open_single_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:button="@null"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="小王\n抠底"/>
+
+            <TextView
+                android:id="@+id/tv_open_single_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:button="@null"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="小王\n抠底"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_open_use_big1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n大王"/>
+
+            <TextView
+                android:id="@+id/tv_open_use_big2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n大王"/>
+
+            <TextView
+                android:id="@+id/tv_open_use_small1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n小王"/>
+
+            <TextView
+                android:id="@+id/tv_open_use_small2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n小王"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="得分:"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:id="@+id/iv_open_sub"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/sub"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/et_open_score"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:text="0"
+                android:background="@drawable/score_shape"
+                android:layout_marginLeft="5dp"/>
+
+            <ImageView
+                android:id="@+id/iv_open_add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/add"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/rg_close_kou"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:background="@drawable/play_recycle_cardview_shape"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_close_double_big"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="闭室"
+                android:padding="8dp"
+                android:background="@drawable/home_shape"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:id="@+id/rg_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/rb_close_north"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:background="@drawable/text_team_selector"
+                    android:textColor="@color/text_color_selector"
+                    android:text="东西(2队)"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/rb_close_east"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:background="@drawable/text_team_selector"
+                    android:textColor="@color/text_color_selector"
+                    android:text="南北(1队)"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rg_close_kou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
             android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="大王\n抠底"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_close_double_small"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv_close_double_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="大王\n抠底"/>
+
+            <TextView
+                android:id="@+id/tv_close_double_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="大王\n抠底"/>
+
+            <TextView
+                android:id="@+id/tv_close_single_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="小王\n抠底"/>
+
+            <TextView
+                android:id="@+id/tv_close_single_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="小王\n抠底"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
             android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="大王\n抠底"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_close_single_big"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv_close_use_big1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n大王"/>
+
+            <TextView
+                android:id="@+id/tv_close_use_big2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n大王"/>
+
+            <TextView
+                android:id="@+id/tv_close_use_small1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n小王"/>
+
+            <TextView
+                android:id="@+id/tv_close_use_small2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/text_team_selector"
+                android:textColor="@color/text_color_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16dp"
+                android:text="潇洒\n小王"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
             android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="小王\n抠底"/>
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_close_single_small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="小王\n抠底"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="得分:"
+                android:textSize="20sp"/>
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/iv_close_sub"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/sub"
+                android:layout_marginLeft="20dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+            <EditText
+                android:id="@+id/et_close_score"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:gravity="center"
+                android:text="0"
+                android:background="@drawable/score_shape"
+                android:layout_marginLeft="5dp"/>
 
-        <TextView
-            android:id="@+id/tv_close_use_big1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n大王"/>
+            <ImageView
+                android:id="@+id/iv_close_add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/add"/>
 
-        <TextView
-            android:id="@+id/tv_close_use_big2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n大王"/>
-
-        <TextView
-            android:id="@+id/tv_close_use_small1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n小王"/>
-
-        <TextView
-            android:id="@+id/tv_close_use_small2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/text_team_selector"
-            android:textColor="@color/text_color_selector"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textSize="16dp"
-            android:text="潇洒\n小王"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="得分:"
-            android:textSize="20sp"/>
-
-        <ImageView
-            android:id="@+id/iv_close_sub"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/sub"
-            android:layout_marginLeft="20dp"/>
-
-        <EditText
-            android:id="@+id/et_close_score"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:gravity="center"
-            android:text="0"
-            android:background="@drawable/score_shape"
-            android:layout_marginLeft="5dp"/>
-
-        <ImageView
-            android:id="@+id/iv_close_add"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/add"/>
+        </LinearLayout>
 
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:lines="1"
             android:text="单局比分: "/>
 
@@ -451,6 +465,9 @@
             android:layout_toRightOf="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:lines="1"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"/>
@@ -464,7 +481,8 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/single_count_shape"
             android:textColor="@color/white"
-            android:layout_marginRight="20dp"
+            android:textSize="18dp"
+            android:layout_marginRight="30dp"
             android:text="计算"/>
 
     </RelativeLayout>

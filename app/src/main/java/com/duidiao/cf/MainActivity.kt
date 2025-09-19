@@ -199,6 +199,12 @@ class MainActivity : ComponentActivity() {
         countManagerCreate = findViewById(R.id.iv_count_manager_create)
 
         start?.setOnClickListener {
+            for (itemList in playDateList) {
+                if (!itemList.isFinished) {
+                    Toast.makeText(this, "还有对局未结束，无法操作", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+            }
             handleScore(playDateList)
         }
         next?.setOnClickListener {
@@ -253,6 +259,7 @@ class MainActivity : ComponentActivity() {
         }
 
         countManagerCreate?.setOnClickListener {
+            Log.i(TAG, "initView: countManagerCreate")
             showDialog()
         }
     }
@@ -311,7 +318,7 @@ class MainActivity : ComponentActivity() {
         }
         countManagerAdapter?.updateData(countManagerDateList)
 
-        result?.text = "$localTeam1 ： $team1 分， ${localTeam2}： $team2 分"
+        result?.text = "$localTeam1:$team1 分,${localTeam2}:$team2 分"
         isFinished = true
     }
 }

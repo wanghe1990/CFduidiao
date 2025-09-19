@@ -76,6 +76,7 @@ class MyAdapter(private var dataList: List<Item>?) :
         holder.closeSingleBigKou.isSelected = item?.closeSingleBigKouSelect!!
         holder.closeSingleSmallKou.isSelected = item?.closeSingleSmallKouSelect!!
         holder.closeScore.setText(item?.closeScore.toString())
+        holder.result.text = "赢家：___,得分:___"
         initEvent(holder, item, position)
     }
 
@@ -467,7 +468,8 @@ class MyAdapter(private var dataList: List<Item>?) :
             }
         }
         holder.result.text =
-            "赢家：" + if (date.realResultScore == 0) "平局" else date.realWinTeam + ",得分: " + date.realResultScore
+            "赢家:" + if (date.realResultScore == 0) "平局" else date.realWinTeam + ",得分:" + date.realResultScore
+        item?.isFinished = true
     }
 
     // 返回数据项数量
