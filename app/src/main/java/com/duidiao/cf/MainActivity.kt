@@ -124,6 +124,7 @@ class MainActivity : ComponentActivity() {
     private fun clearCache() {
         result?.text = ""
         isFinished = false
+        index?.text = "第 1 局"
     }
 
     private fun createCountManagerDate(team: String) {
