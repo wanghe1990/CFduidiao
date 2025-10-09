@@ -76,7 +76,7 @@ class MainActivity : ComponentActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setView(dialogView)
         val dialog = builder.create()
-
+        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_layout_bg_shape)
         val team1 = dialogView.findViewById<EditText>(R.id.team1)
         val team2 = dialogView.findViewById<EditText>(R.id.team2)
         val save = dialogView.findViewById<TextView>(R.id.save)
@@ -200,13 +200,7 @@ class MainActivity : ComponentActivity() {
         countManagerCreate = findViewById(R.id.iv_count_manager_create)
 
         start?.setOnClickListener {
-            for (itemList in playDateList) {
-                if (!itemList.isFinished) {
-                    Toast.makeText(this, "还有对局未结束，无法操作", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-            }
-            handleScore(playDateList)
+            showEnterDialog()
         }
         next?.setOnClickListener {
 
@@ -321,5 +315,31 @@ class MainActivity : ComponentActivity() {
 
         result?.text = "$localTeam1:$team1 分,${localTeam2}:$team2 分"
         isFinished = true
+    }
+
+    private fun showEnterDialog() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.total_enter_dialog_view, null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(dialogView)
+
+        val dialog = builder.create()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.dialog_layout_bg_shape)
+        val cancel = dialogView.findViewById<TextView>(R.id.cancel)
+        val save = dialogView.findViewById<TextView>(R.id.save)
+
+        save.setOnClickListener {
+            for (itemList in playDateList) {
+                if (!itemList.isFinished) {
+                    Toast.makeText(this, "还有对局未结束，无法操作", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+            }
+            handleScore(playDateList)
+            dialog.dismiss()
+        }
+        cancel.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 }

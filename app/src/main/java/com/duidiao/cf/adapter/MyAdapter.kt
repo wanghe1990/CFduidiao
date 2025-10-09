@@ -76,7 +76,7 @@ class MyAdapter(private var dataList: List<Item>?) :
         holder.closeSingleBigKou.isSelected = item?.closeSingleBigKouSelect!!
         holder.closeSingleSmallKou.isSelected = item?.closeSingleSmallKouSelect!!
         holder.closeScore.setText(item?.closeScore.toString())
-        holder.result.text = "赢家：___,得分:___"
+        holder.result.text = "赢家:" + if (item.realResultScore == 0) "平局" else item.realWinTeam + ",得分:" + item.realResultScore
         initEvent(holder, item, position)
     }
 

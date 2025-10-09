@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@drawable/dialog_layout_bg_shape"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="180dp">
+
+        <TextView
+            android:id="@+id/begin_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="点击保存按钮将开始计算本局比赛结果"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/begin_save">
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:background="@drawable/home_shape"
+                android:text="取消"/>
+
+
+            <TextView
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/home_shape"
+                android:text="保存"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
